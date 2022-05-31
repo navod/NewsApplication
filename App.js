@@ -1,21 +1,27 @@
 import {View, Text} from 'react-native';
 import React from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import ComponentStyles from './constants/ComponentStyles';
-import {widthPercentageToDP} from 'react-native-responsive-screen';
+import {NavigationContainer} from '@react-navigation/native';
+import RootStackScreen from './src/screens/RootStackScreen';
+import NewsReducer from './store/reducers/news';
+import thunk from 'redux-thunk';
+import {Provider} from 'react-redux';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+import {RootSiblingParent} from 'react-native-root-siblings';
+
+const rootReducer = combineReducers({
+  news: NewsReducer,
+});
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
 const App = () => {
   return (
-    <View style={{padding: widthPercentageToDP('2%')}}>
-      <Text
-        style={{
-          fontFamily: ComponentStyles.FONT.MULISH_BOLD,
-          fontSize: ComponentStyles.FONT_SIZE.EX_LARGE,
-          color: 'black',
-        }}>
-        6993
-      </Text>
-      <Icon name="rocket" size={30} color="#900" />
-    </View>
+    <Provider store={store}>
+      <NavigationContainer>
+        <RootSiblingParent>
+          <RootStackScreen />
+        </RootSiblingParent>
+      </NavigationContainer>
+    </Provider>
   );
 };
 
