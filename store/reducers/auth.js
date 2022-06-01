@@ -3,7 +3,10 @@ import * as actionTypes from '../actions/auth/actionTypes';
 const initialState = {
   loading: false,
   signUpLoading: false,
-  userData: {},
+  user: null,
+  token: null,
+  error: null,
+  redirectHome: false,
 };
 
 const userSingInStart = (state, action) => {
@@ -53,6 +56,22 @@ const userSignUpFail = (state, action) => {
     signUpLoading: false,
   };
 };
+
+const userSignOut = (state, action) => {
+  return {
+    ...state,
+    user: null,
+    token: null,
+    error: null,
+    loading: false,
+    redirectHome: false,
+  };
+};
+
+const redirectHome = (state, action) => {
+  return {...state, redirectHome: true};
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.USER_SIGN_IN_START:
@@ -68,6 +87,12 @@ const reducer = (state = initialState, action) => {
       return userSignUpSuccess(state, action);
     case actionTypes.USER_SIGN_UP_FAIL:
       return userSignUpFail(state, action);
+
+    case actionTypes.USER_SIGN_OUT:
+      return userSignOut(state, action);
+
+    case actionTypes.REDIRECT_HOME:
+      return redirectHome(state, action);
 
     default:
       return state;

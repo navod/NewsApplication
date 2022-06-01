@@ -56,9 +56,7 @@ const SignIn = props => {
       toast(ERROR_MESSAGE.NO_INTERNET, ALERT_TYPE.ERROR);
     } else {
       if (isValid()) {
-        props.onSignInHandler(email, password, () =>
-          navigation.navigate('HomeTopTabScreen'),
-        );
+        props.onSignInHandler(email, password, rememberMe);
       }
     }
   };
@@ -158,8 +156,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSignInHandler: (email, password, callback) =>
-      dispatch(actions.userSignIn(email, password, callback)),
+    onSignInHandler: (email, password, rememberMe) =>
+      dispatch(actions.userSignIn(email, password, rememberMe)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
