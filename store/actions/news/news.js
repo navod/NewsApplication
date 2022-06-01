@@ -41,7 +41,8 @@ export const getAllNews = () => {
       })
       .catch(newsErr => {
         dispatch(getAllNewsFail(newsErr));
-        if (newsErr.status === 429) {
+
+        if (newsErr.response.status === 429) {
           toast(ERROR_MESSAGE.TOO_MANY_REQUESTS, ALERT_TYPE.ERROR);
         } else {
           toast(ERROR_MESSAGE.SOMETHING_WENT_WRONG, ALERT_TYPE.ERROR);
@@ -68,7 +69,7 @@ export const searchAllNews = searchText => {
       })
       .catch(newsErr => {
         dispatch(getAllNewsFail(newsErr));
-        if (newsErr.status === 429) {
+        if (newsErr.response.status === 429) {
           toast(ERROR_MESSAGE.TOO_MANY_REQUESTS, ALERT_TYPE.ERROR);
         } else {
           toast(ERROR_MESSAGE.SOMETHING_WENT_WRONG, ALERT_TYPE.ERROR);
@@ -114,7 +115,7 @@ export const getBusinessNews = () => {
       })
       .catch(newsErr => {
         dispatch(getBusinessNewsFail(newsErr));
-        if (newsErr.status === 429) {
+        if (newsErr.response.status === 429) {
           toast(ERROR_MESSAGE.TOO_MANY_REQUESTS, ALERT_TYPE.ERROR);
         } else {
           toast(ERROR_MESSAGE.SOMETHING_WENT_WRONG, ALERT_TYPE.ERROR);
@@ -141,7 +142,7 @@ export const searchBusinessNews = searchText => {
       })
       .catch(newsErr => {
         dispatch(getBusinessNewsFail(newsErr));
-        if (newsErr.status === 429) {
+        if (newsErr.response.status === 429) {
           toast(ERROR_MESSAGE.TOO_MANY_REQUESTS, ALERT_TYPE.ERROR);
         } else {
           toast(ERROR_MESSAGE.SOMETHING_WENT_WRONG, ALERT_TYPE.ERROR);
@@ -187,7 +188,7 @@ export const getTechnologyNews = () => {
       })
       .catch(newsErr => {
         dispatch(getTechnologysNewsFail(newsErr));
-        if (newsErr.status === 429) {
+        if (newsErr.response.status === 429) {
           toast(ERROR_MESSAGE.TOO_MANY_REQUESTS, ALERT_TYPE.ERROR);
         } else {
           toast(ERROR_MESSAGE.SOMETHING_WENT_WRONG, ALERT_TYPE.ERROR);
@@ -214,7 +215,7 @@ export const searchTechnologyNews = searchText => {
       })
       .catch(newsErr => {
         dispatch(getTechnologysNewsFail(newsErr));
-        if (newsErr.status === 429) {
+        if (newsErr.response.status === 429) {
           toast(ERROR_MESSAGE.TOO_MANY_REQUESTS, ALERT_TYPE.ERROR);
         } else {
           toast(ERROR_MESSAGE.SOMETHING_WENT_WRONG, ALERT_TYPE.ERROR);
@@ -260,7 +261,7 @@ export const getScienceNews = () => {
       })
       .catch(newsErr => {
         dispatch(getScienceNewsFail(newsErr));
-        if (newsErr.status === 429) {
+        if (newsErr.response.status === 429) {
           toast(ERROR_MESSAGE.TOO_MANY_REQUESTS, ALERT_TYPE.ERROR);
         } else {
           toast(ERROR_MESSAGE.SOMETHING_WENT_WRONG, ALERT_TYPE.ERROR);
@@ -287,7 +288,7 @@ export const searchScienceNews = searchText => {
       })
       .catch(newsErr => {
         dispatch(getScienceNewsFail(newsErr));
-        if (newsErr.status === 429) {
+        if (newsErr.response.status === 429) {
           toast(ERROR_MESSAGE.TOO_MANY_REQUESTS, ALERT_TYPE.ERROR);
         } else {
           toast(ERROR_MESSAGE.SOMETHING_WENT_WRONG, ALERT_TYPE.ERROR);
