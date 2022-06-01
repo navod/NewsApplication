@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, ActivityIndicator} from 'react-native';
 import AllNewsList from './AllNewsIList/AllNewsList';
 import ComponentStyles, {
@@ -11,6 +11,8 @@ const AllNewsScreen = props => {
   useEffect(() => {
     props.onGetAllNews();
   }, []);
+
+  const [refreshing, setRefreshing] = useState(false);
 
   return (
     <View style={styles.mainContainer}>
@@ -25,7 +27,16 @@ const AllNewsScreen = props => {
           />
         </View>
       ) : (
-        <AllNewsList data={props.allNews} />
+        <AllNewsList
+          data={props.allNews}
+          refreshing={refreshing}
+          refreshPos={() => {
+            setRefreshing(true);
+            props.onGetAllNews(() => {
+              setRefreshing(false);
+            });
+          }}
+        />
       )}
     </View>
   );
@@ -40,7 +51,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onGetAllNews: () => dispatch(actions.getAllNews()),
+    onGetAllNews: callback => dispatch(actions.getAllNews(callback)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(AllNewsScreen);

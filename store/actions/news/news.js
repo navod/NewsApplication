@@ -23,7 +23,7 @@ const getAllNewsFail = error => {
   };
 };
 
-export const getAllNews = () => {
+export const getAllNews = callback => {
   return dispatch => {
     dispatch(getAllNewsStart());
     axiosNews
@@ -38,6 +38,9 @@ export const getAllNews = () => {
       })
       .then(newsRes => {
         dispatch(getAllNewsSuccess(newsRes.data.articles));
+        if (callback) {
+          callback();
+        }
       })
       .catch(newsErr => {
         dispatch(getAllNewsFail(newsErr));
@@ -98,7 +101,7 @@ const getBusinessNewsFail = error => {
   };
 };
 
-export const getBusinessNews = () => {
+export const getBusinessNews = callback => {
   return dispatch => {
     dispatch(getBusinessNewsStart());
     axiosNews
@@ -112,6 +115,9 @@ export const getBusinessNews = () => {
       })
       .then(newsRes => {
         dispatch(getBusinessNewsSuccess(newsRes.data.articles));
+        if (callback) {
+          callback();
+        }
       })
       .catch(newsErr => {
         dispatch(getBusinessNewsFail(newsErr));
@@ -171,7 +177,7 @@ const getTechnologysNewsFail = error => {
   };
 };
 
-export const getTechnologyNews = () => {
+export const getTechnologyNews = callback => {
   return dispatch => {
     dispatch(getTechnologyNewsStart());
     axiosNews
@@ -185,6 +191,9 @@ export const getTechnologyNews = () => {
       })
       .then(newsRes => {
         dispatch(getTechnologyNewsSuccess(newsRes.data.articles));
+        if (callback) {
+          callback();
+        }
       })
       .catch(newsErr => {
         dispatch(getTechnologysNewsFail(newsErr));
@@ -244,7 +253,7 @@ const getScienceNewsFail = error => {
   };
 };
 
-export const getScienceNews = () => {
+export const getScienceNews = callback => {
   return dispatch => {
     dispatch(getScienceNewsStart());
     axiosNews
@@ -258,6 +267,9 @@ export const getScienceNews = () => {
       })
       .then(newsRes => {
         dispatch(getScienceNewsSuccess(newsRes.data.articles));
+        if (callback) {
+          callback();
+        }
       })
       .catch(newsErr => {
         dispatch(getScienceNewsFail(newsErr));

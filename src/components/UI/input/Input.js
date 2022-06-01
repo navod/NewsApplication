@@ -1,5 +1,11 @@
 import React from 'react';
-import {View, TextInput, StyleSheet} from 'react-native';
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  Text,
+} from 'react-native';
 import ComponentStyles from '../../../../constants/ComponentStyles';
 import {
   widthPercentageToDP as wp,
@@ -59,6 +65,17 @@ const Input = props => {
     textInputStyles.textAlign = props.textAlign;
     textInputStyles.paddingLeft = 0;
     textInputStyles.paddingRight = wp('5%');
+  }
+
+  // radio button styles
+  let radioTextStyles = {...styles.radioText};
+
+  if (props.font) {
+    radioTextStyles.fontFamily = props.font;
+  }
+
+  if (props.color) {
+    radioTextStyles.color = props.color;
   }
 
   switch (props.type) {
@@ -148,6 +165,34 @@ const Input = props => {
         </View>
       );
       break;
+    case INPUT_TYPES.RADIO_BUTTON:
+      input = (
+        <TouchableWithoutFeedback onPress={props.toggleCheck}>
+          <View style={styles.radio}>
+            <View
+              style={
+                !props.checked
+                  ? styles.radioButton
+                  : {
+                      ...styles.radioButton,
+                      backgroundColor: props.radioBtnColor
+                        ? props.radioBtnColor
+                        : ComponentStyles.COLORS.RED,
+                      borderWidth: 0,
+                    }
+              }>
+              <IO
+                name="checkmark-outline"
+                color={ComponentStyles.COLORS.WHITE}
+                size={ComponentStyles.ICON_SIZE.EX_SMALL}
+              />
+            </View>
+
+            <Text style={radioTextStyles}>{props.placeholder}</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      );
+      break;
 
     default:
       input = null;
@@ -186,5 +231,26 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  radio: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  radioButton: {
+    width: wp('5%'),
+    height: wp('5%'),
+    borderRadius: wp('1.5%'),
+    borderWidth: 1,
+    borderColor: ComponentStyles.COLORS.LIGHT_GRAY_2,
+    marginRight: wp('2%'),
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  radioText: {
+    fontFamily: ComponentStyles.FONT.MULISH_REGULAR,
+    fontSize: ComponentStyles.FONT_SIZE.EX_SMALL + 1,
+    color: ComponentStyles.COLORS.LIGHT_GRAY_2,
   },
 });

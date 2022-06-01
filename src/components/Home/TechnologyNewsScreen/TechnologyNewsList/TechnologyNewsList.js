@@ -1,4 +1,4 @@
-import {View, FlatList, StyleSheet} from 'react-native';
+import {View, FlatList, StyleSheet, RefreshControl} from 'react-native';
 import React from 'react';
 import {heightPercentageToDP as hp} from '../../../../../constants/ComponentStyles';
 import TechnologyNewsListItem from './TechnologyNewsListItem/TechnologyNewsListItem';
@@ -15,6 +15,13 @@ const TechnologyNewsList = props => {
       ListFooterComponent={() => {
         return <View style={styles.footer}></View>;
       }}
+      scrollEnabled
+      refreshControl={
+        <RefreshControl
+          refreshing={props.refreshing}
+          onRefresh={props.refreshPos}
+        />
+      }
     />
   );
 };

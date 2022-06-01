@@ -8,3 +8,5 @@ export {
   searchScienceNews,
   searchTechnologyNews,
 } from './news/news';
+
+export {userSignIn, userSignUp} from './auth/auth';

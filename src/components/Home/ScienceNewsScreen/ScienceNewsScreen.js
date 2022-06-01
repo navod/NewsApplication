@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, ActivityIndicator} from 'react-native';
 import ComponentStyles, {
   widthPercentageToDP as wp,
@@ -13,6 +13,7 @@ const ScienceNewsScreen = props => {
     props.onGetScienceNews();
   }, []);
 
+  const [refreshing, setRefreshing] = useState(false);
   return (
     <View style={styles.mainContainer}>
       <View style={styles.space}></View>
@@ -24,7 +25,16 @@ const ScienceNewsScreen = props => {
           />
         </View>
       ) : (
-        <ScienceNewsList data={props.scienceNews} />
+        <ScienceNewsList
+          data={props.scienceNews}
+          refreshing={refreshing}
+          refreshPos={() => {
+            setRefreshing(true);
+            props.onGetScienceNews(() => {
+              setRefreshing(false);
+            });
+          }}
+        />
       )}
     </View>
   );
@@ -39,7 +49,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onGetScienceNews: () => dispatch(actions.getScienceNews()),
+    onGetScienceNews: callback => dispatch(actions.getScienceNews(callback)),
   };
 };
 

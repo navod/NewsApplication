@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, ActivityIndicator} from 'react-native';
 import ComponentStyles, {
   heightPercentageToDP as hp,
@@ -12,6 +12,7 @@ const TechnologyNewsScreen = props => {
     props.onGetTechnologyNews();
   }, []);
 
+  const [refreshing, setRefreshing] = useState(false);
   return (
     <View style={styles.mainContainer}>
       <View style={styles.space}></View>
@@ -23,7 +24,16 @@ const TechnologyNewsScreen = props => {
           />
         </View>
       ) : (
-        <TechnologyNewsList data={props.technologyNews} />
+        <TechnologyNewsList
+          data={props.technologyNews}
+          refreshing={refreshing}
+          refreshPos={() => {
+            setRefreshing(true);
+            props.onGetTechnologyNews(() => {
+              setRefreshing(false);
+            });
+          }}
+        />
       )}
     </View>
   );
@@ -38,7 +48,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onGetTechnologyNews: () => dispatch(actions.getTechnologyNews()),
+    onGetTechnologyNews: callback =>
+      dispatch(actions.getTechnologyNews(callback)),
   };
 };
 

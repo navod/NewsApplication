@@ -14,18 +14,20 @@ export const heightPercentageToDP = percentage => {
 
 export default {
   COLORS: {
-    DARK_BLUE: '#1E4079',
-    RED: '#E93D25',
-    DARK_GRAY: '#26262D',
     WHITE: '#ffffff',
     BLACK: '#000000',
+    GREEN: '#5cb85c',
+    GREY: '#D2D2D2',
     LIGHT_GRAY: '#F4F4F4',
     LIGHT_GRAY_2: '#808080',
     LIGHT_GRAY_3: '#A4A4A4',
-    GREY: '#D2D2D2',
-    GREEN: '#5cb85c',
+    DARK_GRAY: '#26262D',
+    RED: '#E93D25',
+    RED_1: '#C9341F',
     RED_2: '#ee6c4d',
+    RED_3: '#ED614E',
     ORANGE: '#f0ad4e',
+    DARK_BLUE: '#1E4079',
   },
 
   FONT: {

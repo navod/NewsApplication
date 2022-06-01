@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, ActivityIndicator} from 'react-native';
 import ComponentStyles, {
   heightPercentageToDP as hp,
@@ -11,6 +11,8 @@ const BusinessScreen = props => {
   useEffect(() => {
     props.onGetBusinessNews();
   }, []);
+  
+  const [refreshing, setRefreshing] = useState(false);
 
   return (
     <View style={styles.mainContainer}>
@@ -23,7 +25,16 @@ const BusinessScreen = props => {
           />
         </View>
       ) : (
-        <BusinessNewsList data={props.businessNews} />
+        <BusinessNewsList
+          data={props.businessNews}
+          refreshing={refreshing}
+          refreshPos={() => {
+            setRefreshing(true);
+            props.onGetBusinessNews(() => {
+              setRefreshing(false);
+            });
+          }}
+        />
       )}
     </View>
   );
@@ -38,7 +49,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onGetBusinessNews: () => dispatch(actions.getBusinessNews()),
+    onGetBusinessNews: callback => dispatch(actions.getBusinessNews(callback)),
   };
 };
 
