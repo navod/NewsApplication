@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "149160946466",
+    "project_id": "newsapp-d6563",
+    "storage_bucket": "newsapp-d6563.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149160946466:android:73a4f6a52c289ccbbed37b",
+        "android_client_info": {
+          "package_name": "com.navod.newsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149160946466-8afmqhr288cqtbmt78hui20aj8lnkaf6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.navod.newsapp",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "149160946466-tc5p9utfoufteabtnqiml8g2d63i15rd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9At6GIyRazWxAx0tAxshB_3MIzG5JLF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149160946466-tc5p9utfoufteabtnqiml8g2d63i15rd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:149160946466:android:6009686a76af43c4bed37b",
+        "android_client_info": {
+          "package_name": "com.newsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "149160946466-tc5p9utfoufteabtnqiml8g2d63i15rd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9At6GIyRazWxAx0tAxshB_3MIzG5JLF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149160946466-tc5p9utfoufteabtnqiml8g2d63i15rd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

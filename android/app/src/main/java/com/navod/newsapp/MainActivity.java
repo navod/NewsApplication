@@ -1,4 +1,4 @@
-package com.newsapp;
+package com.navod.newsapp;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

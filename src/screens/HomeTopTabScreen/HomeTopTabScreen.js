@@ -35,8 +35,6 @@ const HomeTopTabScreen = props => {
   const [searchText, setSearchText] = useState('');
 
   const onSearchNewsHandler = searchText => {
-  
-
     if (!netInfo.isConnected) {
       toast(ERROR_MESSAGE.NO_INTERNET, ALERT_TYPE.ERROR);
     } else {
@@ -97,6 +95,7 @@ const HomeTopTabScreen = props => {
           tabBarScrollEnabled: true,
           tabBarItemStyle: styles.tabBarItem,
           tabBarIndicatorContainerStyle: styles.tabBarIndicatorContainer,
+          tabBarPressColor: 'white',
         }}>
         <Tab.Screen
           name="AllNewsScreen"
