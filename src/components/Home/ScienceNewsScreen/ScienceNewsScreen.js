@@ -17,7 +17,7 @@ const ScienceNewsScreen = props => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.space}></View>
-      {props.loading ? (
+      {props.loading || props.buffering ? (
         <View style={{flex: 1, justifyContent: 'center'}}>
           <ActivityIndicator
             size={ComponentStyles.ICON_SIZE.LARGE + 10}
@@ -44,6 +44,7 @@ const mapStateToProps = state => {
   return {
     scienceNews: state.news.scienceNews,
     loading: state.news.scienceNewsLoading,
+    buffering: state.news.buffering,
   };
 };
 

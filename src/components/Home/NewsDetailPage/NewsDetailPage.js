@@ -2,7 +2,6 @@ import React from 'react';
 import {
   View,
   Text,
-  Image,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
@@ -18,6 +17,7 @@ import IO from 'react-native-vector-icons/Ionicons';
 import SubHeader from '../../UI/SubHeader/SubHeader';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import moment from 'moment';
+import FastImage from 'react-native-fast-image';
 
 const NewsDetailPage = () => {
   const navigation = useNavigation();
@@ -47,7 +47,7 @@ const NewsDetailPage = () => {
       <SubHeader left={subHeaderLeft} middle={subHeaderMiddle} />
       <View style={styles.imageContainer}>
         {params.urlToImage ? (
-          <Image
+          <FastImage
             source={{uri: params.urlToImage}}
             resizeMode="cover"
             style={{width: '100%', height: '100%'}}
@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
     flex: 0.6,
     justifyContent: 'center',
     alignItems: 'center',
+
   },
   subHeaderMiddle: {
     fontFamily: ComponentStyles.FONT.MULISH_BOLD,
@@ -112,8 +113,9 @@ const styles = StyleSheet.create({
     borderTopRightRadius: wp('6%'),
     backgroundColor: 'white',
     flex: 1,
-    marginTop: -10,
+    marginTop: -20,
     elevation: 2,
+    
   },
   textContainer: {
     padding: wp('4%'),
@@ -154,7 +156,7 @@ const styles = StyleSheet.create({
   hyperlinkBtn: {
     borderRadius: wp('100%'),
     position: 'absolute',
-    bottom: 20,
+    bottom: 30,
     backgroundColor: ComponentStyles.COLORS.RED,
     right: 10,
     padding: wp('1.5%'),

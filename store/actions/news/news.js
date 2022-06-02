@@ -8,6 +8,13 @@ import {
 import {toast} from '../../../shared/utility';
 import * as actionTypes from './actionTypes';
 
+export const setBuffering = buffering => {
+  return {
+    type: actionTypes.SET_BUFFERING,
+    payload: {buffering},
+  };
+};
+
 const getAllNewsStart = () => {
   return {
     type: actionTypes.GET_ALL_NEWS_START,

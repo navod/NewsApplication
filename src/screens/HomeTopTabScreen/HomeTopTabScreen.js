@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, StatusBar, StyleSheet, Image} from 'react-native';
+import {View, StatusBar, StyleSheet} from 'react-native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import BusinessScreen from '../../components/Home/BusinessScreen/BusinessScreen';
 import ComponentStyles, {
@@ -22,6 +22,7 @@ import {toast} from '../../../shared/utility';
 import ScienceNewsScreen from '../../components/Home/ScienceNewsScreen/ScienceNewsScreen';
 import TechnologyNewsScreen from '../../components/Home/TechnologyNewsScreen/TechnologyNewsScreen';
 import SportsNewsScreen from '../../components/Home/SportsNewsScreen/SportsNewsScreen';
+import FastImage from 'react-native-fast-image';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -64,7 +65,7 @@ const HomeTopTabScreen = props => {
         barStyle="light-content"
       />
       <View style={styles.rowContainer}>
-        <Image
+        <FastImage
           source={defaultLogo}
           style={styles.logoImg}
           resizeMode="contain"
@@ -79,9 +80,10 @@ const HomeTopTabScreen = props => {
             onChangeText={val => {
               setSearchText(val);
               clearTimeout(timeoutRef);
-
+              props.setBuffering(true);
               setTimeoutRef(
                 setTimeout(() => {
+                  props.setBuffering(false);
                   onSearchNewsHandler(val);
                 }, 1000),
               );
@@ -162,6 +164,7 @@ const HomeTopTabScreen = props => {
     </View>
   );
 };
+
 const mapDispatchToProps = dispatch => {
   return {
     onSearchAllNews: searchText => dispatch(actions.searchAllNews(searchText)),
@@ -177,6 +180,8 @@ const mapDispatchToProps = dispatch => {
 
     onSearchSportsNews: searchText =>
       dispatch(actions.searchSportsNews(searchText)),
+
+    setBuffering: buffering => dispatch(actions.setBuffering(buffering)),
   };
 };
 export default connect(null, mapDispatchToProps)(HomeTopTabScreen);

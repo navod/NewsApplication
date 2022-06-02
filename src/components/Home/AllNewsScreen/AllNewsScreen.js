@@ -19,7 +19,7 @@ const AllNewsScreen = props => {
       <View style={styles.headerTxtWrapper}>
         <Text style={styles.headerTxt}>Recent News</Text>
       </View>
-      {props.loading ? (
+      {props.loading || props.buffering ? (
         <View style={{flex: 1, justifyContent: 'center'}}>
           <ActivityIndicator
             size={ComponentStyles.ICON_SIZE.LARGE + 10}
@@ -46,6 +46,7 @@ const mapStateToProps = state => {
   return {
     allNews: state.news.allNews,
     loading: state.news.allNewsLoading,
+    buffering: state.news.buffering,
   };
 };
 

@@ -12,6 +12,7 @@ const initialState = {
   scienceNewsLoading: false,
   sportsNews: [],
   sportsNewsLoading: false,
+  buffering: false,
 };
 
 const getAllNewsStart = (state, action) => {
@@ -134,6 +135,13 @@ const getSportsNewsFail = (state, action) => {
   };
 };
 
+const setBuffering = (state, action) => {
+  return {
+    ...state,
+    ...action.payload,
+  };
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.GET_ALL_NEWS_START:
@@ -170,6 +178,9 @@ const reducer = (state = initialState, action) => {
       return getSportsNewsSuccess(state, action);
     case actionTypes.GET_SPORTS_NEWS_FAIL:
       return getSportsNewsFail(state, action);
+
+    case actionTypes.SET_BUFFERING:
+      return setBuffering(state, action);
 
     default:
       return state;

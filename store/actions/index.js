@@ -9,6 +9,7 @@ export {
   searchTechnologyNews,
   getSportsNews,
   searchSportsNews,
+  setBuffering,
 } from './news/news';
 
 export {

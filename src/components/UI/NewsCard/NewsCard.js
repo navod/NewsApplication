@@ -1,10 +1,4 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import {View, Text, StyleSheet, TouchableWithoutFeedback} from 'react-native';
 import React from 'react';
 import ComponentStyles, {
   widthPercentageToDP as wp,
@@ -14,6 +8,7 @@ import FO from 'react-native-vector-icons/Fontisto';
 import IO from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import moment from 'moment';
+import FastImage from 'react-native-fast-image';
 
 const NewsCard = props => {
   const navigation = useNavigation();
@@ -30,7 +25,7 @@ const NewsCard = props => {
         <View style={styles.mainContainer}>
           <View style={styles.imgContainer}>
             {props.data?.urlToImage ? (
-              <Image
+              <FastImage
                 source={{uri: props.data?.urlToImage}}
                 style={styles.backgroundImg}
                 resizeMode="cover"
@@ -118,7 +113,6 @@ const styles = StyleSheet.create({
   backgroundImg: {
     width: '100%',
     height: '100%',
-    borderWidth: 1,
     borderTopLeftRadius: wp('2%'),
     borderBottomLeftRadius: wp('2%'),
   },

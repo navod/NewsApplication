@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import ComponentStyles, {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -7,6 +7,7 @@ import ComponentStyles, {
 import logo from '../../../../../assets/logo.png';
 import IO from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
+import FastImage from 'react-native-fast-image';
 
 const SuccessfullPopUp = props => {
   const navigation = useNavigation();
@@ -22,7 +23,7 @@ const SuccessfullPopUp = props => {
           alignItems: 'center',
           flex: 1,
         }}>
-        <Image source={logo} style={styles.image} resizeMode="contain" />
+        <FastImage source={logo} style={styles.image} resizeMode="contain" />
         <Text style={styles.appName}>Zee News</Text>
         <View style={styles.confirmIconContainer}>
           <IO

@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
 import IO from 'react-native-vector-icons/Ionicons';
@@ -11,6 +11,7 @@ import DrawerItem from './DrawerItem/DrawerItem';
 import {connect} from 'react-redux';
 import defaultLogo from '../../../../assets/logo.png';
 import profileLogo from '../../../../assets/profileLogo.png';
+import FastImage from 'react-native-fast-image';
 
 const DrawerContent = props => {
   const navigation = useNavigation();
@@ -19,7 +20,7 @@ const DrawerContent = props => {
     <View style={styles.drawerContent}>
       <View style={styles.header}>
         <View style={styles.topContainer}>
-          <Image
+          <FastImage
             source={defaultLogo}
             style={styles.logoImg}
             resizeMode="contain"
@@ -33,7 +34,7 @@ const DrawerContent = props => {
         </View>
 
         <View style={styles.userContainer}>
-          <Image
+          <FastImage
             source={profileLogo}
             style={styles.profileLogo}
             resizeMode="contain"

@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Image,
   StatusBar,
   ActivityIndicator,
 } from 'react-native';
@@ -25,6 +24,7 @@ import logo from '../../../../assets/logo.png';
 import {useNavigation} from '@react-navigation/native';
 import {toast} from '../../../../shared/utility';
 import {useNetInfo} from '@react-native-community/netinfo';
+import FastImage from 'react-native-fast-image';
 
 const SignIn = props => {
   const [email, setEmail] = useState('navod@gmail.com');
@@ -69,7 +69,7 @@ const SignIn = props => {
         barStyle="light-content"
       />
       <View style={styles.imageContainer}>
-        <Image
+        <FastImage
           source={loginImage}
           resizeMode="cover"
           style={styles.image}
@@ -77,7 +77,7 @@ const SignIn = props => {
         />
         <View style={styles.centerContainer}>
           <View style={styles.logoContainer}>
-            <Image
+            <FastImage
               source={logo}
               resizeMode="contain"
               style={styles.image}

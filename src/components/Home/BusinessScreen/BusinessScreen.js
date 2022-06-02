@@ -11,13 +11,13 @@ const BusinessScreen = props => {
   useEffect(() => {
     props.onGetBusinessNews();
   }, []);
-  
+
   const [refreshing, setRefreshing] = useState(false);
 
   return (
     <View style={styles.mainContainer}>
       <View style={styles.space}></View>
-      {props.loading ? (
+      {props.loading || props.buffering ? (
         <View style={{flex: 1, justifyContent: 'center'}}>
           <ActivityIndicator
             size={ComponentStyles.ICON_SIZE.LARGE + 10}
@@ -44,6 +44,7 @@ const mapStateToProps = state => {
   return {
     businessNews: state.news.businessNews,
     loading: state.news.businessNewsLoading,
+    buffering: state.news.buffering,
   };
 };
 
