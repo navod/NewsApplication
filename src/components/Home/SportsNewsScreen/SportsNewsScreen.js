@@ -30,7 +30,7 @@ const SportsNewsScreen = props => {
           refreshing={refreshing}
           refreshPos={() => {
             setRefreshing(true);
-            props.onGetAllNews(() => {
+            props.onGetSportsNews(() => {
               setRefreshing(false);
             });
           }}

@@ -27,8 +27,8 @@ import {useNetInfo} from '@react-native-community/netinfo';
 import FastImage from 'react-native-fast-image';
 
 const SignIn = props => {
-  const [email, setEmail] = useState('navod@gmail.com');
-  const [password, setPassword] = useState('1234567890');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [passwordVisible, setVisibility] = useState(false);
 
   const [rememberMe, setRememberMe] = useState(false);

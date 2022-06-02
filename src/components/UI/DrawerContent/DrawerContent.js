@@ -85,8 +85,6 @@ const styles = StyleSheet.create({
   },
 
   header: {
-    height: '17.7%',
-    display: 'flex',
     zIndex: 200,
     backgroundColor: ComponentStyles.COLORS.RED,
   },
@@ -125,8 +123,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: '8%',
-    paddingVertical: '2%',
-    marginTop: '2%',
+    marginVertical:wp("9%")
   },
   profileLogo: {
     width: wp('10%'),

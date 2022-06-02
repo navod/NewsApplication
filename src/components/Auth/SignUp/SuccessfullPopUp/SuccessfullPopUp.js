@@ -23,7 +23,12 @@ const SuccessfullPopUp = props => {
           alignItems: 'center',
           flex: 1,
         }}>
-        <FastImage source={logo} style={styles.image} resizeMode="contain" />
+        <FastImage
+          source={logo}
+          style={styles.image}
+          resizeMode="contain"
+          tintColor={ComponentStyles.COLORS.WHITE}
+        />
         <Text style={styles.appName}>Zee News</Text>
         <View style={styles.confirmIconContainer}>
           <IO
@@ -57,7 +62,6 @@ const styles = StyleSheet.create({
     backgroundColor: ComponentStyles.COLORS.RED,
   },
   image: {
-    tintColor: 'white',
     width: wp('20%'),
     height: wp('7%'),
     marginTop: wp('4%'),
