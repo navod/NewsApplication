@@ -88,7 +88,7 @@ const Input = props => {
               name={props.iconName}
               size={ComponentStyles.ICON_SIZE.SMALL}
               color={
-                props.color ? props.color : ComponentStyles.COLORS.DARK_GREY_2
+                props.color ? props.color : ComponentStyles.COLORS.LIGHT_GRAY_2
               }
             />
           ) : null}
@@ -100,7 +100,7 @@ const Input = props => {
                 ? props.placeholderTextColor
                 : props.color
                 ? props.color
-                : ComponentStyles.COLORS.DARK_GREY_2
+                : ComponentStyles.COLORS.LIGHT_GRAY_2
             }
             multiline={!!props.height}
             keyboardType={props.keyboardType}
@@ -117,7 +117,7 @@ const Input = props => {
               name={props.rightIcon}
               size={ComponentStyles.ICON_SIZE.SMALL}
               color={
-                props.color ? props.color : ComponentStyles.COLORS.DARK_GREY_2
+                props.color ? props.color : ComponentStyles.COLORS.DARK_GRAY
               }
             />
           ) : null}

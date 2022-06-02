@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   },
   btnText: {
     fontFamily: ComponentStyles.FONT.MULISH_BOLD,
-    fontSize: ComponentStyles.FONT_SIZE.MEDIUM,
+    fontSize: ComponentStyles.FONT_SIZE.SMALL,
     color: ComponentStyles.COLORS.WHITE,
   },
   appName: {

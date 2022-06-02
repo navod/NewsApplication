@@ -1,5 +1,10 @@
 import {axiosNews} from '../../../axios';
-import {ALERT_TYPE, API_KEY, ERROR_MESSAGE} from '../../../constants/Constants';
+import {
+  ALERT_TYPE,
+  API_KEY,
+  CATEGORY,
+  ERROR_MESSAGE,
+} from '../../../constants/Constants';
 import {toast} from '../../../shared/utility';
 import * as actionTypes from './actionTypes';
 
@@ -30,7 +35,6 @@ export const getAllNews = callback => {
       .get('/v2/top-headlines', {
         headers: {authorization: API_KEY},
         params: {
-          page: 1,
           country: 'us',
           // category: 'health',
           // q:"what"
@@ -109,8 +113,8 @@ export const getBusinessNews = callback => {
         headers: {authorization: API_KEY},
         params: {
           page: 1,
-          country: 'us',
-          category: 'business',
+          // country: 'us',
+          category: CATEGORY.BUSINESS,
         },
       })
       .then(newsRes => {
@@ -138,8 +142,8 @@ export const searchBusinessNews = searchText => {
         headers: {authorization: API_KEY},
         params: {
           page: 1,
-          country: 'us',
-          category: 'business',
+          // country: 'us',
+          category: CATEGORY.BUSINESS,
           q: searchText,
         },
       })
@@ -185,8 +189,8 @@ export const getTechnologyNews = callback => {
         headers: {authorization: API_KEY},
         params: {
           page: 1,
-          country: 'us',
-          category: 'technology',
+          // country: 'us',
+          category: CATEGORY.TECHNOLOGY,
         },
       })
       .then(newsRes => {
@@ -214,8 +218,8 @@ export const searchTechnologyNews = searchText => {
         headers: {authorization: API_KEY},
         params: {
           page: 1,
-          country: 'us',
-          category: 'technology',
+          // country: 'us',
+          category: CATEGORY.TECHNOLOGY,
           q: searchText,
         },
       })
@@ -261,8 +265,8 @@ export const getScienceNews = callback => {
         headers: {authorization: API_KEY},
         params: {
           page: 1,
-          country: 'us',
-          category: 'science',
+          // country: 'us',
+          category: CATEGORY.SCIENCE,
         },
       })
       .then(newsRes => {
@@ -290,8 +294,8 @@ export const searchScienceNews = searchText => {
         headers: {authorization: API_KEY},
         params: {
           page: 1,
-          country: 'us',
-          category: 'science',
+          // country: 'us',
+          category: CATEGORY.SCIENCE,
           q: searchText,
         },
       })

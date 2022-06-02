@@ -64,9 +64,9 @@ export const ALERT_COLOR = {
 
 //categories
 export const CATEGORY = {
-  ALL: 'ALL',
-  BUSINESS: 'Business',
-  SCIENCE: 'SCIENCE',
-  SPORTS: 'SPORTS',
-  TECHNOLOGY: 'TECHNOLOGY',
+  ALL: 'all',
+  BUSINESS: 'business',
+  SCIENCE: 'science',
+  SPORTS: 'sports',
+  TECHNOLOGY: 'technology',
 };

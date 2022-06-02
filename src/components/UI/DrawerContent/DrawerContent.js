@@ -2,23 +2,32 @@ import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
 import IO from 'react-native-vector-icons/Ionicons';
-import ComponentStyles from '../../../../constants/ComponentStyles';
+import ComponentStyles, {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from '../../../../constants/ComponentStyles';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
 import DrawerItem from './DrawerItem/DrawerItem';
+import {connect} from 'react-redux';
 
 const DrawerContent = props => {
   const navigation = useNavigation();
+
   return (
     <View style={styles.drawerContent}>
       <View style={styles.header}>
         <View style={styles.topContainer}>
+          <Text style={styles.appName}>Zee News</Text>
           <IO
             name="close-outline"
-            color={ComponentStyles.COLORS.EX_DARK_GREY}
+            color={ComponentStyles.COLORS.LIGHT_GRAY_1}
             size={ComponentStyles.ICON_SIZE.LARGE}
             onPress={() => navigation.dispatch(DrawerActions.closeDrawer())}
           />
         </View>
+        <Text style={styles.welcomeTxt}>
+          Welcome {props.user.split(' ')[0]}
+        </Text>
       </View>
       <DrawerContentScrollView {...props} hitSlop={false}>
         <View style={styles.listContainer}>
@@ -44,7 +53,12 @@ const DrawerContent = props => {
   );
 };
 
-export default DrawerContent;
+const mapStateToProps = state => {
+  return {
+    user: state.auth.user.displayName,
+  };
+};
+export default connect(mapStateToProps)(DrawerContent);
 
 const styles = StyleSheet.create({
   drawerContent: {
@@ -71,5 +85,17 @@ const styles = StyleSheet.create({
     display: 'flex',
     paddingLeft: '7%',
     paddingRight: '7%',
+  },
+  appName: {
+    fontFamily: ComponentStyles.FONT.MULISH_BOLD,
+    fontSize: ComponentStyles.FONT_SIZE.SMALL,
+    color: ComponentStyles.COLORS.LIGHT_GRAY_1,
+  },
+  welcomeTxt: {
+    fontFamily: ComponentStyles.FONT.MULISH_LIGHT,
+    fontSize: ComponentStyles.FONT_SIZE.SMALL,
+    color: ComponentStyles.COLORS.LIGHT_GRAY_1,
+    textAlign: 'center',
+    marginTop: wp('4%'),
   },
 });

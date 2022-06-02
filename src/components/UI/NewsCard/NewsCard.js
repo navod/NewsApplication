@@ -11,6 +11,7 @@ import ComponentStyles, {
   heightPercentageToDP as hp,
 } from '../../../../constants/ComponentStyles';
 import FO from 'react-native-vector-icons/Fontisto';
+import IO from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import moment from 'moment';
 
@@ -28,11 +29,20 @@ const NewsCard = props => {
         }>
         <View style={styles.mainContainer}>
           <View style={styles.imgContainer}>
-            <Image
-              source={{uri: props.data?.urlToImage}}
-              style={styles.backgroundImg}
-              resizeMode="cover"
-            />
+            {props.data?.urlToImage ? (
+              <Image
+                source={{uri: props.data?.urlToImage}}
+                style={styles.backgroundImg}
+                resizeMode="cover"
+              />
+            ) : (
+              <IO
+                name="image-sharp"
+                color={ComponentStyles.COLORS.LIGHT_GRAY_3}
+                size={ComponentStyles.ICON_SIZE.LARGE + 10}
+                style={{textAlign: 'left'}}
+              />
+            )}
           </View>
           <View style={styles.textContainer}>
             <Text style={styles.category}>{props.category}</Text>
@@ -41,21 +51,20 @@ const NewsCard = props => {
                 ? props.data?.title.slice(0, 60) + '...'
                 : props.data?.title}
             </Text>
-            <View style={{...styles.iconContainer, marginTop: wp('6%')}}>
-              <View style={styles.iconContainer}>
-                <FO
-                  name="clock"
-                  color={ComponentStyles.COLORS.LIGHT_GRAY_3}
-                  size={ComponentStyles.ICON_SIZE.SMALL}
-                />
-                <Text style={styles.time}>
-                  {moment(props.data?.publishedAt).fromNow()}
-                </Text>
-              </View>
-              <Text style={styles.authorTxt}>
-                {props.data.author
-                  ? 'by ' + props.data.author.slice(0, 20)
-                  : null}
+            <View
+              style={{
+                ...styles.iconContainer,
+                justifyContent: null,
+                marginTop: wp('6%'),
+              }}>
+              <FO
+                name="clock"
+                color={ComponentStyles.COLORS.LIGHT_GRAY_3}
+                size={ComponentStyles.ICON_SIZE.EX_SMALL - 2}
+                style={{textAlign: 'left'}}
+              />
+              <Text style={styles.time}>
+                {moment(props.data?.publishedAt).fromNow()}
               </Text>
             </View>
           </View>
@@ -86,6 +95,9 @@ const styles = StyleSheet.create({
     width: '40%',
     height: '100%',
     borderRadius: wp('2%'),
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: ComponentStyles.COLORS.LIGHT_GRAY_1,
   },
   textContainer: {
     width: '60%',
@@ -100,8 +112,8 @@ const styles = StyleSheet.create({
   description: {
     color: ComponentStyles.COLORS.BLACK,
     fontFamily: ComponentStyles.FONT.MULISH_BOLD,
-    fontSize: ComponentStyles.FONT_SIZE.SMALL,
-    marginTop: wp('4%'),
+    fontSize: ComponentStyles.FONT_SIZE.SMALL - 1,
+    marginTop: wp('3%'),
   },
   backgroundImg: {
     width: '100%',
@@ -113,7 +125,7 @@ const styles = StyleSheet.create({
   time: {
     fontFamily: ComponentStyles.FONT.MULISH_REGULAR,
     color: ComponentStyles.COLORS.LIGHT_GRAY_3,
-    fontSize: ComponentStyles.FONT_SIZE.EX_SMALL,
+    fontSize: ComponentStyles.FONT_SIZE.EX_SMALL - 2,
     marginLeft: wp('2%'),
   },
   authorTxt: {
@@ -121,5 +133,6 @@ const styles = StyleSheet.create({
     color: ComponentStyles.COLORS.LIGHT_GRAY_3,
     fontSize: ComponentStyles.FONT_SIZE.EX_SMALL,
     marginLeft: wp('2%'),
+    fontSize: ComponentStyles.FONT_SIZE.EX_SMALL - 2,
   },
 });

@@ -45,25 +45,25 @@ const SignUp = props => {
 
   const isValid = () => {
     if (username === '' && password && confirmPassword && password) {
-      toast(ERROR_MESSAGE.AUTH.ALL_FIELDS_REQUIRED, ALERT_TYPE.ERROR);
+      toast(ERROR_MESSAGE.AUTH.ALL_FIELDS_REQUIRED, ALERT_TYPE.WARNING);
       return false;
     } else if (username === '') {
-      toast(ERROR_MESSAGE.AUTH.EMPTY_USERNAME, ALERT_TYPE.ERROR);
+      toast(ERROR_MESSAGE.AUTH.EMPTY_USERNAME, ALERT_TYPE.WARNING);
       return false;
     } else if (email === '') {
       toast(ERROR_MESSAGE.AUTH.EMPTY_EAMIL, ALERT_TYPE.ERROR);
       return false;
     } else if (password === '') {
-      toast(ERROR_MESSAGE.AUTH.EMPTY_PASSWORD, ALERT_TYPE.ERROR);
+      toast(ERROR_MESSAGE.AUTH.EMPTY_PASSWORD, ALERT_TYPE.WARNING);
       return false;
     } else if (confirmPassword === '') {
-      toast(ERROR_MESSAGE.AUTH.EMPTY_CONFIRM_PASSWORD, ALERT_TYPE.ERROR);
+      toast(ERROR_MESSAGE.AUTH.EMPTY_CONFIRM_PASSWORD, ALERT_TYPE.WARNING);
       return false;
     } else if (confirmPassword !== password) {
-      toast(ERROR_MESSAGE.AUTH.PASSWORD_DOES_NOT_MATCH, ALERT_TYPE.ERROR);
+      toast(ERROR_MESSAGE.AUTH.PASSWORD_DOES_NOT_MATCH, ALERT_TYPE.WARNING);
       return false;
     } else if (password.length < 8) {
-      toast(ERROR_MESSAGE.AUTH.INVALID_PASSWORD, ALERT_TYPE.ERROR);
+      toast(ERROR_MESSAGE.AUTH.INVALID_PASSWORD, ALERT_TYPE.WARNING);
       return false;
     } else {
       return true;
@@ -205,8 +205,9 @@ const styles = StyleSheet.create({
   headerTxt: {
     fontFamily: ComponentStyles.FONT.MULISH_BOLD,
     color: ComponentStyles.COLORS.WHITE,
-    fontSize: ComponentStyles.FONT_SIZE.LARGE + 10,
-    marginLeft: wp('4%'),
+    fontSize: ComponentStyles.FONT_SIZE.LARGE + 5,
+    textAlign:"center",
+
   },
   subContainer: {
     flex: 0.7,
@@ -226,15 +227,14 @@ const styles = StyleSheet.create({
   },
   signUpBtnTxt: {
     fontFamily: ComponentStyles.FONT.MULISH_BOLD,
-    fontSize: ComponentStyles.FONT_SIZE.MEDIUM,
+    fontSize: ComponentStyles.FONT_SIZE.SMALL,
     color: ComponentStyles.COLORS.WHITE,
   },
   bottomText: {
     marginTop: hp('3.5%'),
     fontFamily: ComponentStyles.FONT.MULISH_REGULAR,
     fontSize: ComponentStyles.FONT_SIZE.EX_SMALL + 1,
-    color: ComponentStyles.COLORS.EX_DARK_GREY_2,
-    // textAlign: 'center',
+    color: ComponentStyles.COLORS.LIGHT_GRAY_2,
   },
   bottomInnerText: {
     textDecorationLine: 'underline',

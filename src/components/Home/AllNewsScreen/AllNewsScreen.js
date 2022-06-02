@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: wp('4%'),
   },
   headerTxt: {
-    fontSize: ComponentStyles.FONT_SIZE.LARGE,
+    fontSize: ComponentStyles.FONT_SIZE.SMALL,
     fontFamily: ComponentStyles.FONT.MULISH_BOLD,
     color: ComponentStyles.COLORS.LIGHT_GRAY_2,
   },

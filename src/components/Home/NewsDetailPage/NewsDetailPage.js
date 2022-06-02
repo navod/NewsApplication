@@ -24,7 +24,6 @@ const NewsDetailPage = () => {
 
   const {params} = useRoute();
 
-
   const subHeaderLeft = (
     <IO
       name="chevron-back-outline"
@@ -47,11 +46,19 @@ const NewsDetailPage = () => {
       />
       <SubHeader left={subHeaderLeft} middle={subHeaderMiddle} />
       <View style={styles.imageContainer}>
-        <Image
-          source={{uri: params.urlToImage}}
-          resizeMode="cover"
-          style={{width: '100%', height: '100%'}}
-        />
+        {params.urlToImage ? (
+          <Image
+            source={{uri: params.urlToImage}}
+            resizeMode="cover"
+            style={{width: '100%', height: '100%'}}
+          />
+        ) : (
+          <IO
+            name="image-sharp"
+            color={ComponentStyles.COLORS.LIGHT_GRAY_3}
+            size={ComponentStyles.ICON_SIZE.LARGE + 60}
+          />
+        )}
 
         <TouchableOpacity
           style={styles.hyperlinkBtn}
@@ -69,14 +76,14 @@ const NewsDetailPage = () => {
             <Text style={styles.category}>{params.category}</Text>
             <Text style={styles.title}>{params.title}</Text>
             <Text style={styles.newsDetail}>
-              By {params.author} |{' '}
-              {moment(params.publishedAt).format("'MMMM Do YYYY, h.mm a")}
+              By {params.author + '  '} |{'  '}
+              {moment(params.publishedAt).format('MMMM Do YYYY, h.mm a')}
             </Text>
             <Text style={styles.description}>{params.description}</Text>
 
             <Text style={styles.content}>
               {params.content === null
-                ? 'No content available'
+                ? 'No content available..!'
                 : params.content}
             </Text>
           </View>
@@ -91,6 +98,8 @@ export default NewsDetailPage;
 const styles = StyleSheet.create({
   imageContainer: {
     flex: 0.6,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   subHeaderMiddle: {
     fontFamily: ComponentStyles.FONT.MULISH_BOLD,
@@ -146,8 +155,6 @@ const styles = StyleSheet.create({
     borderRadius: wp('100%'),
     position: 'absolute',
     bottom: 20,
-    width: wp('10%'),
-    height: wp('10%'),
     backgroundColor: ComponentStyles.COLORS.RED,
     right: 10,
     padding: wp('1.5%'),

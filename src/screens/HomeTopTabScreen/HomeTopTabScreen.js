@@ -70,7 +70,7 @@ const HomeTopTabScreen = props => {
           <Input
             placeholder="Search news.."
             type={INPUT_TYPES.TEXT_INPUT}
-            iconName="search-outline"
+            rightIcon="search-outline"
             borderWidth={0}
             value={searchText}
             onChangeText={val => {
@@ -191,7 +191,9 @@ const styles = StyleSheet.create({
   tabBarLabel: {
     textTransform: 'capitalize',
     fontFamily: ComponentStyles.FONT.MULISH_BOLD,
-    fontSize: ComponentStyles.FONT_SIZE.SMALL,
+    fontSize: ComponentStyles.FONT_SIZE.EX_SMALL - 1,
+    width: wp('25%'),
+    textAlign: 'left',
   },
   tabBarIndicator: {
     backgroundColor: ComponentStyles.COLORS.RED,
@@ -209,6 +211,6 @@ const styles = StyleSheet.create({
   },
   tabBarItem: {
     width: wp('25%'),
-    left: -20,
+    height: hp('6.5%'),
   },
 });
