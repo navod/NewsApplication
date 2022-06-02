@@ -10,6 +10,8 @@ const initialState = {
   technologyNewsLoading: false,
   scienceNews: [],
   scienceNewsLoading: false,
+  sportsNews: [],
+  sportsNewsLoading: false,
 };
 
 const getAllNewsStart = (state, action) => {
@@ -108,6 +110,30 @@ const getTechnologyNewsFail = (state, action) => {
   };
 };
 
+const getSportsNewsStart = (state, action) => {
+  return {
+    ...state,
+    sportsNewsLoading: true,
+    error: null,
+  };
+};
+
+const getSportsNewsSuccess = (state, action) => {
+  return {
+    ...state,
+    ...action.payload,
+    sportsNewsLoading: false,
+  };
+};
+
+const getSportsNewsFail = (state, action) => {
+  return {
+    ...state,
+    ...action.payload,
+    sportsNewsLoading: false,
+  };
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.GET_ALL_NEWS_START:
@@ -137,6 +163,14 @@ const reducer = (state = initialState, action) => {
       return getScienceNewsSuccess(state, action);
     case actionTypes.GET_SCIENCE_NEWS_FAIL:
       return getScienceNewsFail(state, action);
+
+    case actionTypes.GET_SPORTS_NEWS_START:
+      return getSportsNewsStart(state, action);
+    case actionTypes.GET_SPORTS_NEWS_SUCCESS:
+      return getSportsNewsSuccess(state, action);
+    case actionTypes.GET_SPORTS_NEWS_FAIL:
+      return getSportsNewsFail(state, action);
+
     default:
       return state;
   }

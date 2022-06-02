@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import React from 'react';
 import {DrawerContentScrollView} from '@react-navigation/drawer';
 import IO from 'react-native-vector-icons/Ionicons';
@@ -9,6 +9,8 @@ import ComponentStyles, {
 import {DrawerActions, useNavigation} from '@react-navigation/native';
 import DrawerItem from './DrawerItem/DrawerItem';
 import {connect} from 'react-redux';
+import defaultLogo from '../../../../assets/logo.png';
+import profileLogo from '../../../../assets/profileLogo.png';
 
 const DrawerContent = props => {
   const navigation = useNavigation();
@@ -17,17 +19,33 @@ const DrawerContent = props => {
     <View style={styles.drawerContent}>
       <View style={styles.header}>
         <View style={styles.topContainer}>
-          <Text style={styles.appName}>Zee News</Text>
+          <Image
+            source={defaultLogo}
+            style={styles.logoImg}
+            resizeMode="contain"
+          />
           <IO
             name="close-outline"
-            color={ComponentStyles.COLORS.LIGHT_GRAY_1}
+            color={ComponentStyles.COLORS.RED}
             size={ComponentStyles.ICON_SIZE.LARGE}
             onPress={() => navigation.dispatch(DrawerActions.closeDrawer())}
           />
         </View>
-        <Text style={styles.welcomeTxt}>
-          Welcome {props.user.split(' ')[0]}
-        </Text>
+
+        <View style={styles.userContainer}>
+          <Image
+            source={profileLogo}
+            style={styles.profileLogo}
+            resizeMode="contain"
+          />
+
+          <Text style={styles.welcomeTxt}>
+            Welcome{' '}
+            <Text style={{fontFamily: ComponentStyles.FONT.MULISH_BOLD}}>
+              {props.user.split(' ')[0]}
+            </Text>
+          </Text>
+        </View>
       </View>
       <DrawerContentScrollView {...props} hitSlop={false}>
         <View style={styles.listContainer}>
@@ -73,13 +91,14 @@ const styles = StyleSheet.create({
   },
 
   topContainer: {
-    height: '45%',
+    // height: '45%',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingLeft: '8%',
-    paddingRight: '8%',
+    paddingHorizontal: '8%',
+    paddingVertical: '2%',
+    backgroundColor: ComponentStyles.COLORS.WHITE,
   },
   listContainer: {
     display: 'flex',
@@ -95,7 +114,23 @@ const styles = StyleSheet.create({
     fontFamily: ComponentStyles.FONT.MULISH_LIGHT,
     fontSize: ComponentStyles.FONT_SIZE.SMALL,
     color: ComponentStyles.COLORS.LIGHT_GRAY_1,
-    textAlign: 'center',
-    marginTop: wp('4%'),
+    marginLeft: wp('3%'),
+  },
+  logoImg: {
+    width: wp('20%'),
+    height: hp('5%'),
+  },
+  userContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: '8%',
+    paddingVertical: '2%',
+    marginTop: '2%',
+  },
+  profileLogo: {
+    width: wp('10%'),
+    height: wp('10%'),
+    borderRadius: wp('100%'),
+    backgroundColor: ComponentStyles.COLORS.WHITE,
   },
 });

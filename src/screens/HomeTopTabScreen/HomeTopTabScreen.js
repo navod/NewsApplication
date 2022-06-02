@@ -21,7 +21,7 @@ import {useNetInfo} from '@react-native-community/netinfo';
 import {toast} from '../../../shared/utility';
 import ScienceNewsScreen from '../../components/Home/ScienceNewsScreen/ScienceNewsScreen';
 import TechnologyNewsScreen from '../../components/Home/TechnologyNewsScreen/TechnologyNewsScreen';
-import Test from '../../components/Home/Test';
+import SportsNewsScreen from '../../components/Home/SportsNewsScreen/SportsNewsScreen';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -50,6 +50,9 @@ const HomeTopTabScreen = props => {
       if (focusScreen === CATEGORY.TECHNOLOGY) {
         props.onSearchTechnologyNews(searchText);
       }
+      if (focusScreen === CATEGORY.SPORTS) {
+        props.onSearchSportsNews(searchText);
+      }
     }
   };
 
@@ -70,7 +73,7 @@ const HomeTopTabScreen = props => {
           <Input
             placeholder="Search news.."
             type={INPUT_TYPES.TEXT_INPUT}
-            rightIcon="search-outline"
+            iconName="search-outline"
             borderWidth={0}
             value={searchText}
             onChangeText={val => {
@@ -134,20 +137,20 @@ const HomeTopTabScreen = props => {
           })}
         />
         <Tab.Screen
-          name="TechnologyNewsScreen"
-          options={{title: 'Technology'}}
-          component={TechnologyNewsScreen}
+          name="Sports"
+          options={{title: 'Sports'}}
+          component={SportsNewsScreen}
           listeners={({navigation, route}) => ({
             focus: () => {
-              setFocusScreen(CATEGORY.TECHNOLOGY);
+              setFocusScreen(CATEGORY.SPORTS);
               setSearchText('');
             },
           })}
         />
         <Tab.Screen
-          name="Test"
-          options={{title: 'Test'}}
-          component={Test}
+          name="TechnologyNewsScreen"
+          options={{title: 'Technology'}}
+          component={TechnologyNewsScreen}
           listeners={({navigation, route}) => ({
             focus: () => {
               setFocusScreen(CATEGORY.TECHNOLOGY);
@@ -171,6 +174,9 @@ const mapDispatchToProps = dispatch => {
 
     onSearchTechnologyNews: searchText =>
       dispatch(actions.searchTechnologyNews(searchText)),
+
+    onSearchSportsNews: searchText =>
+      dispatch(actions.searchSportsNews(searchText)),
   };
 };
 export default connect(null, mapDispatchToProps)(HomeTopTabScreen);
@@ -187,6 +193,7 @@ const styles = StyleSheet.create({
     padding: wp('2%'),
     backgroundColor: ComponentStyles.COLORS.WHITE,
     paddingTop: wp('4'),
+    paddingRight: wp('3%'),
   },
   tabBarLabel: {
     textTransform: 'capitalize',

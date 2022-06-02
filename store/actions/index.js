@@ -7,6 +7,8 @@ export {
   getTechnologyNews,
   searchScienceNews,
   searchTechnologyNews,
+  getSportsNews,
+  searchSportsNews,
 } from './news/news';
 
 export {

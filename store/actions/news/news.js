@@ -312,3 +312,76 @@ export const searchScienceNews = searchText => {
       });
   };
 };
+
+const getSportsNewsStart = () => {
+  return {
+    type: actionTypes.GET_SPORTS_NEWS_START,
+  };
+};
+
+const getSportsNewsSuccess = sportsNews => {
+  return {
+    type: actionTypes.GET_SPORTS_NEWS_SUCCESS,
+    payload: {sportsNews},
+  };
+};
+
+const getSportsNewsFail = error => {
+  return {
+    type: actionTypes.GET_SPORTS_NEWS_FAIL,
+    payload: {error},
+  };
+};
+
+export const getSportsNews = callback => {
+  return dispatch => {
+    dispatch(getSportsNewsStart());
+    axiosNews
+      .get('/v2/top-headlines', {
+        headers: {authorization: API_KEY},
+        params: {
+          category: CATEGORY.SPORTS,
+        },
+      })
+      .then(newsRes => {
+        dispatch(getSportsNewsSuccess(newsRes.data.articles));
+        if (callback) {
+          callback();
+        }
+      })
+      .catch(newsErr => {
+        dispatch(getSportsNewsFail(newsErr));
+
+        if (newsErr.response.status === 429) {
+          toast(ERROR_MESSAGE.TOO_MANY_REQUESTS, ALERT_TYPE.ERROR);
+        } else {
+          toast(ERROR_MESSAGE.SOMETHING_WENT_WRONG, ALERT_TYPE.ERROR);
+        }
+      });
+  };
+};
+
+export const searchSportsNews = searchText => {
+  return dispatch => {
+    dispatch(getSportsNewsStart());
+    axiosNews
+      .get('/v2/top-headlines', {
+        headers: {authorization: API_KEY},
+        params: {
+          category: CATEGORY.SPORTS,
+          q: searchText,
+        },
+      })
+      .then(newsRes => {
+        dispatch(getSportsNewsSuccess(newsRes.data.articles));
+      })
+      .catch(newsErr => {
+        dispatch(getSportsNewsFail(newsErr));
+        if (newsErr.response.status === 429) {
+          toast(ERROR_MESSAGE.TOO_MANY_REQUESTS, ALERT_TYPE.ERROR);
+        } else {
+          toast(ERROR_MESSAGE.SOMETHING_WENT_WRONG, ALERT_TYPE.ERROR);
+        }
+      });
+  };
+};
