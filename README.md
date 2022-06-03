@@ -154,4 +154,4 @@ I have solved the above problems, used by this dependency,
 
 ![hyperlink](https://github.com/navod/news_app_images/blob/main/hyperlink.png)
 ![diagram](https://github.com/navod/news_app_images/blob/main/search.png)
-![validate](https://github.com/navod/news_app_images/blob/main/validate.png)
+![validate](https://github.com/navod/news_app_images/blob/main/validate1.png)
