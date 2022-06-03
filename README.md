@@ -149,4 +149,9 @@ I have solved the above problems, used by this dependency,
 
 - Users can view and search different category news.
 - login , signup and signout.
-- Added hyperlink to view more details about the news.
+- Added hyperlink to read more details about the news.
+
+
+![hyperlink](https://github.com/navod/news_app_images/blob/main/hyperlink.png)
+![diagram](https://github.com/navod/news_app_images/blob/main/search.png)
+![validate](https://github.com/navod/news_app_images/blob/main/validate.png)
