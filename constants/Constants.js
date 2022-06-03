@@ -9,7 +9,7 @@ export const INPUT_TYPES = {
 };
 
 export const BASE_URL = 'https://newsapi.org/';
-export const API_KEY = '968cf576332348bf9ab2a225d0653ec5'; //api key get from .env file
+export const API_KEY = NEWS_API_KEY; //api key get from .env file
 
 export const ZEE_NEWS_USER_KEY = 'ZEE_NEWS_USER'; //key of async storage
 

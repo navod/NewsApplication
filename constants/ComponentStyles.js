@@ -17,7 +17,7 @@ export default {
     WHITE: '#ffffff',
     BLACK: '#000000',
     GREEN: '#5cb85c',
-    GREY: '#D2D2D2',
+    GRAY: '#D2D2D2',
     LIGHT_GRAY: '#F4F4F4',
     LIGHT_GRAY_1: '#FCFCFC',
     LIGHT_GRAY_2: '#808080',

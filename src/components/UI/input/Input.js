@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
     width: '100%',
     borderRadius: wp('2%'),
     borderWidth: 1,
-    borderColor: ComponentStyles.COLORS.GREY,
+    borderColor: ComponentStyles.COLORS.GRAY,
     fontSize: ComponentStyles.FONT_SIZE.EX_SMALL + 1,
     fontFamily: ComponentStyles.FONT.MULISH_REGULAR,
     height: hp('6%'),

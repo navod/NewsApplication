@@ -31,7 +31,7 @@ const DrawerItem = props => {
         <IO
           name="chevron-forward-outline"
           size={ComponentStyles.ICON_SIZE.SMALL}
-          color={props.color ? props.color : ComponentStyles.COLORS.DARK_GREY_2}
+          color={props.color ? props.color : ComponentStyles.COLORS.RED}
         />
       </View>
     </TouchableOpacity>
