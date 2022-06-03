@@ -57,7 +57,7 @@ Redux Thunk is middleware. I used it for allowing returning functions. This allo
 
 ##### Redux Architecture
 
-![diagram]()
+![diagram](https://github.com/navod/news_app_images/blob/main/react-redux-architecture.png)
 
 **2. Async-Storage** [Documentation](https://react-native-async-storage.github.io/async-storage/docs/usage/)
 
