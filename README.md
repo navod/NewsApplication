@@ -9,7 +9,7 @@ The main purpose of this app is to give people the opportunity to view the lates
 - Science News
 - sports News
 - Technology news
-<br/>
+  <br/>
 
 ## Tech Stack
 
@@ -22,18 +22,23 @@ The main purpose of this app is to give people the opportunity to view the lates
 
 1. Get a free API Key at https://newsapi.org
 2. Clone the repo
+
 ```bash
   git clone https://github.com/navod/NewsApplication.git
 ```
+
 3. Install NPM packages
+
 ```bash
   npm install
 ```
 
 4. Enter your API in `.env`
+
 ```bash
 NEWS_API_KEY = 'ENTER YOUR API KEY';
 ```
+
 <br/>
 
 ## Dependency Reference
@@ -41,12 +46,17 @@ NEWS_API_KEY = 'ENTER YOUR API KEY';
 **1. Redux** [Documentation](https://redux.js.org/introduction/getting-started)
 
 I used this dependency to manage the states of the app. The following sub-dependencies were also used,
+
 ###### 1. react-redux
+
 React Redux is the official UI binding for react Application.
+
 ###### 2. redux-thunk
+
 Redux Thunk is middleware. I used it for allowing returning functions. This allows for delayed actions, including working with promises.2. redux-thunk - Redux Thunk is middleware. I used it for allowing returning functions. This allows for delayed actions, including working with promises.
 
 ##### Redux Architecture
+
 ![diagram]()
 
 **2. Async-Storage** [Documentation](https://react-native-async-storage.github.io/async-storage/docs/usage/)
@@ -86,6 +96,7 @@ npm i @react-native-firebase/app
 ```bash
 @react-native-firebase/auth
 ```
+
 **8. React-native-vector-icons** [Documentation](https://www.npmjs.com/package/react-native-vector-icons)
 
 I used this dependency for use different icons.
@@ -93,7 +104,6 @@ I used this dependency for use different icons.
 **9. React-native-root-toast** [Documentation](https://www.npmjs.com/package/react-native-root-toast)
 
 This toast supports both Android and iOS. I used this for calling API and using Component inside render.
-
 
 **10. Dot-env** [Documentation](https://www.npmjs.com/package/react-native-dotenv)
 
@@ -112,18 +122,19 @@ I have solved the above problems, used by this dependency,
 
 ## Color Reference
 
-| Color     | Hex                                                              |
-| --------- | ---------------------------------------------------------------- |
-| Dark Blue | ![#1E4079](https://via.placeholder.com/10/1E4079?text=+) #1E4079 |
-| Red       | ![#E93D25](https://via.placeholder.com/10/E93D25?text=+) #E93D25 |
-| RED_1 | ![#26262D](https://via.placeholder.com/10/C9341F?text=+) #C9341F |
-| RED_2 | ![#26262D](https://via.placeholder.com/10/ee6c4d?text=+) #ee6c4d |
-| RED_3 | ![#ED614E](https://via.placeholder.com/10/ED614E?text=+) #ED614E |
-| Green     | ![#5cb85c](https://via.placeholder.com/10/5cb85c?text=+) #5cb85c |
+| Color        | Hex                                                              |
+| ------------ | ---------------------------------------------------------------- |
+| Dark Blue    | ![#1E4079](https://via.placeholder.com/10/1E4079?text=+) #1E4079 |
+| Red          | ![#E93D25](https://via.placeholder.com/10/E93D25?text=+) #E93D25 |
+| RED_1        | ![#26262D](https://via.placeholder.com/10/C9341F?text=+) #C9341F |
+| RED_2        | ![#26262D](https://via.placeholder.com/10/ee6c4d?text=+) #ee6c4d |
+| RED_3        | ![#ED614E](https://via.placeholder.com/10/ED614E?text=+) #ED614E |
+| Green        | ![#5cb85c](https://via.placeholder.com/10/5cb85c?text=+) #5cb85c |
 | Light_Gray_1 | ![#FCFCFC](https://via.placeholder.com/10/FCFCFC?text=+) #FCFCFC |
 | Light_Gray_2 | ![#808080](https://via.placeholder.com/10/808080?text=+) #808080 |
 | Light_Gray_3 | ![#A4A4A4](https://via.placeholder.com/10/A4A4A4?text=+) #A4A4A4 |
-| Dark Gray | ![#26262D](https://via.placeholder.com/10/26262D?text=+) #26262D |
+| Dark Gray    | ![#26262D](https://via.placeholder.com/10/26262D?text=+) #26262D |
+
 <br/>
 
 ## Font Reference
@@ -132,7 +143,7 @@ I have solved the above problems, used by this dependency,
 - Mulish Regular
 - Mulish bold
 - Mulish Medium
-<br/>
+  <br/>
 
 ## Features
 
