@@ -2,9 +2,11 @@
 
 ![Logo](assets/logo.png)
 
-The main purpose of this app is to give people the opportunity to view the latest news in worldwide.
+The main purpose of this application is to give people the opportunity to view the latest news in worldwide.
 
-- All News - Users can view all types of news
+Follwoing news categories I added for the application
+
+- All News
 - Business News
 - Science News
 - sports News
@@ -155,3 +157,11 @@ I have solved the above problems, used by this dependency,
 ![hyperlink](https://github.com/navod/news_app_images/blob/main/hyperlink.png)
 ![diagram](https://github.com/navod/news_app_images/blob/main/search.png)
 ![validate](https://github.com/navod/news_app_images/blob/main/validate1.png)
+
+<br/>
+
+## Support
+
+Email: navodsachintha@example.com
+
+Project Link: https://github.com/navod/NewsApplication.git
