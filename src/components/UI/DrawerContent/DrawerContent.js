@@ -43,7 +43,7 @@ const DrawerContent = props => {
           <Text style={styles.welcomeTxt}>
             Welcome{' '}
             <Text style={{fontFamily: ComponentStyles.FONT.MULISH_BOLD}}>
-              {props.user.split(' ')[0]}
+              {props.user?.displayName.split(' ')[0]}
             </Text>
           </Text>
         </View>
@@ -74,7 +74,7 @@ const DrawerContent = props => {
 
 const mapStateToProps = state => {
   return {
-    user: state.auth.user.displayName,
+    user: state.auth.user,
   };
 };
 export default connect(mapStateToProps)(DrawerContent);
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: '8%',
-    marginVertical:wp("9%")
+    marginVertical: wp('9%'),
   },
   profileLogo: {
     width: wp('10%'),

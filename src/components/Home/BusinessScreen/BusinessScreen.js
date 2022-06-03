@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, ActivityIndicator} from 'react-native';
+import {View, StyleSheet, ActivityIndicator} from 'react-native';
 import ComponentStyles, {
   heightPercentageToDP as hp,
 } from '../../../../constants/ComponentStyles';
@@ -9,7 +9,7 @@ import BusinessNewsList from './BusinessNewList/BusinessNewsList';
 
 const BusinessScreen = props => {
   useEffect(() => {
-    props.onGetBusinessNews();
+    props.onGetBusinessNews(); //fetch business news data
   }, []);
 
   const [refreshing, setRefreshing] = useState(false);
@@ -19,7 +19,7 @@ const BusinessScreen = props => {
       <View style={styles.space}></View>
       {props.loading || props.buffering ? (
         <View style={{flex: 1, justifyContent: 'center'}}>
-          <ActivityIndicator
+          <ActivityIndicator // This indicator is rendered until the data is fetched
             size={ComponentStyles.ICON_SIZE.LARGE + 10}
             color={ComponentStyles.COLORS.RED}
           />
@@ -28,7 +28,7 @@ const BusinessScreen = props => {
         <BusinessNewsList
           data={props.businessNews}
           refreshing={refreshing}
-          refreshPos={() => {
+          refresh={() => {
             setRefreshing(true);
             props.onGetBusinessNews(() => {
               setRefreshing(false);

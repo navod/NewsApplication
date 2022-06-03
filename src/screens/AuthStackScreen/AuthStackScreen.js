@@ -5,6 +5,7 @@ import SignUp from '../../components/Auth/SignUp/SignUp';
 
 const AuthStack = createStackNavigator();
 
+// Authentication all screens go through this stack
 const AuthStackScreen = () => {
   return (
     <AuthStack.Navigator screenOptions={{headerShown: false}}>

@@ -4,6 +4,7 @@ import ComponentStyles from '../../../../constants/ComponentStyles';
 import * as actions from '../../../../store/actions';
 import {connect} from 'react-redux';
 
+//This screen was used for user 's signout
 const SignOut = props => {
   useEffect(() => props.onSignOut(), []);
   return (

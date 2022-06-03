@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   StatusBar,
   ActivityIndicator,
+  Modal,
 } from 'react-native';
 import ComponentStyles, {
   widthPercentageToDP as wp,
@@ -25,6 +26,7 @@ import {useNavigation} from '@react-navigation/native';
 import {toast} from '../../../../shared/utility';
 import {useNetInfo} from '@react-native-community/netinfo';
 import FastImage from 'react-native-fast-image';
+import SavedDataPopup from './SavedDataPopup/SavedDataPopup';
 
 const SignIn = props => {
   const [email, setEmail] = useState('');
@@ -33,9 +35,12 @@ const SignIn = props => {
 
   const [rememberMe, setRememberMe] = useState(false);
 
+  const [modalVisible, setModalVisible] = useState(false);
+
   const navigation = useNavigation();
   const netInfo = useNetInfo();
 
+  // check input validation
   const isValid = () => {
     if (email == '' && password == '') {
       toast(ERROR_MESSAGE.AUTH.ALL_FIELDS_REQUIRED, ALERT_TYPE.WARNING);
@@ -51,12 +56,15 @@ const SignIn = props => {
     }
   };
 
+  //signin method
   const signInHandler = () => {
     if (!netInfo.isConnected) {
       toast(ERROR_MESSAGE.NO_INTERNET, ALERT_TYPE.ERROR);
     } else {
       if (isValid()) {
-        props.onSignInHandler(email, password, rememberMe);
+        props.onSignInHandler(email, password, rememberMe, () =>
+          setModalVisible(true),
+        );
       }
     }
   };
@@ -68,6 +76,10 @@ const SignIn = props => {
         backgroundColor={ComponentStyles.COLORS.RED}
         barStyle="light-content"
       />
+
+      <Modal visible={modalVisible} transparent={true}>
+        <SavedDataPopup onClose={() => setModalVisible(false)} />
+      </Modal>
       <View style={styles.imageContainer}>
         <FastImage
           source={loginImage}
@@ -156,8 +168,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSignInHandler: (email, password, rememberMe) =>
-      dispatch(actions.userSignIn(email, password, rememberMe)),
+    onSignInHandler: (email, password, rememberMe, showPopup) =>
+      dispatch(actions.userSignIn(email, password, rememberMe, showPopup)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

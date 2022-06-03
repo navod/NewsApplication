@@ -9,7 +9,8 @@ const initialState = {
   redirectHome: false,
 };
 
-const userSingInStart = (state, action) => {
+// sign in methods //
+const userSignInStart = (state, action) => {
   return {
     ...state,
     loading: true,
@@ -32,8 +33,10 @@ const userSignInFail = (state, action) => {
     loading: false,
   };
 };
+// sign in methods //
 
-const userSingUpStart = (state, action) => {
+// sign up methods //
+const userSignUpStart = (state, action) => {
   return {
     ...state,
     signUpLoading: true,
@@ -56,7 +59,9 @@ const userSignUpFail = (state, action) => {
     signUpLoading: false,
   };
 };
+// sign up methods //
 
+// sign out
 const userSignOut = (state, action) => {
   return {
     ...state,
@@ -75,14 +80,14 @@ const redirectHome = (state, action) => {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.USER_SIGN_IN_START:
-      return userSingInStart(state, action);
+      return userSignInStart(state, action);
     case actionTypes.USER_SIGN_IN_SUCCESS:
       return userSignInSuccess(state, action);
     case actionTypes.USER_SIGN_IN_FAIL:
       return userSignInFail(state, action);
 
     case actionTypes.USER_SIGN_UP_START:
-      return userSingUpStart(state, action);
+      return userSignUpStart(state, action);
     case actionTypes.USER_SIGN_UP_SUCCESS:
       return userSignUpSuccess(state, action);
     case actionTypes.USER_SIGN_UP_FAIL:

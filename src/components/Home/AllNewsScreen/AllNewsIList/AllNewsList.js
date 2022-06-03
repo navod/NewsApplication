@@ -4,7 +4,6 @@ import AllNewsIListItem from './AllNewsIListItem/AllNewsIListItem';
 import {heightPercentageToDP as hp} from '../../../../../constants/ComponentStyles';
 
 const AllNewsList = props => {
-  let data = [{}, {}, {}];
   const renderItem = ({item}) => {
     return <AllNewsIListItem data={item} />;
   };
@@ -19,7 +18,7 @@ const AllNewsList = props => {
       refreshControl={
         <RefreshControl
           refreshing={props.refreshing}
-          onRefresh={props.refreshPos}
+          onRefresh={props.refresh}
         />
       }
     />

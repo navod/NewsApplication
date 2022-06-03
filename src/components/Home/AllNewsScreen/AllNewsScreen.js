@@ -9,7 +9,7 @@ import * as actions from '../../../../store/actions';
 
 const AllNewsScreen = props => {
   useEffect(() => {
-    props.onGetAllNews();
+    props.onGetAllNews(); //fetch all news data
   }, []);
 
   const [refreshing, setRefreshing] = useState(false);
@@ -19,7 +19,7 @@ const AllNewsScreen = props => {
       <View style={styles.headerTxtWrapper}>
         <Text style={styles.headerTxt}>Recent News</Text>
       </View>
-      {props.loading || props.buffering ? (
+      {props.loading || props.buffering ? ( // This indicator is rendered until the data is fetched
         <View style={{flex: 1, justifyContent: 'center'}}>
           <ActivityIndicator
             size={ComponentStyles.ICON_SIZE.LARGE + 10}
@@ -30,7 +30,7 @@ const AllNewsScreen = props => {
         <AllNewsList
           data={props.allNews}
           refreshing={refreshing}
-          refreshPos={() => {
+          refresh={() => {
             setRefreshing(true);
             props.onGetAllNews(() => {
               setRefreshing(false);

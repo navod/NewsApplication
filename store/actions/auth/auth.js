@@ -9,6 +9,7 @@ import * as actionTypes from './actionTypes';
 import auth from '@react-native-firebase/auth';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+//sign in state methods//
 const userSignInStart = () => {
   return {
     type: actionTypes.USER_SIGN_IN_START,
@@ -35,7 +36,7 @@ export const redirectHome = () => {
   };
 };
 
-export const userSignIn = (email, password, rememberMe) => {
+export const userSignIn = (email, password, rememberMe, showPopup) => {
   return dispatch => {
     dispatch(userSignInStart());
 
@@ -58,7 +59,10 @@ export const userSignIn = (email, password, rememberMe) => {
                   token: userRes.user.uid,
                 }),
               );
-              dispatch(redirectHome());
+              if (showPopup) {
+                showPopup();
+              }
+              // dispatch(redirectHome());
             })
             .catch(() => {
               toast(ERROR_MESSAGE.ASYNC_STORAGE_ERROR, ALERT_TYPE.ERROR);
@@ -82,6 +86,7 @@ export const userSignIn = (email, password, rememberMe) => {
       });
   };
 };
+//sign in state methods//
 
 const userSignUpStart = () => {
   return {
@@ -156,3 +161,5 @@ export const tryAutoSignin = () => {
     });
   };
 };
+
+// sign up state methods//

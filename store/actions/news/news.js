@@ -15,6 +15,7 @@ export const setBuffering = buffering => {
   };
 };
 
+///  get,search all news methods ///
 const getAllNewsStart = () => {
   return {
     type: actionTypes.GET_ALL_NEWS_START,
@@ -91,7 +92,9 @@ export const searchAllNews = searchText => {
       });
   };
 };
+///  get and search all news methods ///
 
+///  get and search business news methods ///
 const getBusinessNewsStart = () => {
   return {
     type: actionTypes.GET_BUSINESS_NEWS_START,
@@ -167,7 +170,9 @@ export const searchBusinessNews = searchText => {
       });
   };
 };
+///  get and search business news methods ///
 
+///  get and search technology news methods ///
 const getTechnologyNewsStart = () => {
   return {
     type: actionTypes.GET_TECHNOLOGY_NEWS_START,
@@ -243,7 +248,9 @@ export const searchTechnologyNews = searchText => {
       });
   };
 };
+///  get and search technology news methods ///
 
+///  get and search sceinece news methods ///
 const getScienceNewsStart = () => {
   return {
     type: actionTypes.GET_SCIENCE_NEWS_START,
@@ -319,7 +326,9 @@ export const searchScienceNews = searchText => {
       });
   };
 };
+///  get and search sceinece news methods ///
 
+///  get and search sports news methods ///
 const getSportsNewsStart = () => {
   return {
     type: actionTypes.GET_SPORTS_NEWS_START,
@@ -392,3 +401,4 @@ export const searchSportsNews = searchText => {
       });
   };
 };
+///  get and search sports news methods ///

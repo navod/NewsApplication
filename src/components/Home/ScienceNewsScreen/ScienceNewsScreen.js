@@ -10,14 +10,14 @@ import ScienceNewsList from './ScienceNewsList/ScienceNewsList';
 
 const ScienceNewsScreen = props => {
   useEffect(() => {
-    props.onGetScienceNews();
+    props.onGetScienceNews(); //fetch science news data
   }, []);
 
   const [refreshing, setRefreshing] = useState(false);
   return (
     <View style={styles.mainContainer}>
       <View style={styles.space}></View>
-      {props.loading || props.buffering ? (
+      {props.loading || props.buffering ? ( /// This indicator is rendered until the data is fetched
         <View style={{flex: 1, justifyContent: 'center'}}>
           <ActivityIndicator
             size={ComponentStyles.ICON_SIZE.LARGE + 10}
@@ -28,7 +28,7 @@ const ScienceNewsScreen = props => {
         <ScienceNewsList
           data={props.scienceNews}
           refreshing={refreshing}
-          refreshPos={() => {
+          refresh={() => {
             setRefreshing(true);
             props.onGetScienceNews(() => {
               setRefreshing(false);

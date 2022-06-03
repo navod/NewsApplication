@@ -14,6 +14,7 @@ const RootStackScreen = props => {
     props.onTryAutoSignin();
   }, []);
 
+  // when app loading checking localStorage to have user data
   return (
     <RootStack.Navigator
       screenOptions={{headerShown: false, animationEnabled: true}}>

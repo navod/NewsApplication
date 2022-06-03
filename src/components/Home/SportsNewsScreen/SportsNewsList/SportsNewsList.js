@@ -18,7 +18,7 @@ const SportsNewsList = props => {
       refreshControl={
         <RefreshControl
           refreshing={props.refreshing}
-          onRefresh={props.refreshPos}
+          onRefresh={props.refresh}
         />
       }
     />

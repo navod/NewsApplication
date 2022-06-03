@@ -24,6 +24,8 @@ import {useNavigation} from '@react-navigation/native';
 import SuccessfullPopUp from './SuccessfullPopUp/SuccessfullPopUp';
 import {toast} from '../../../../shared/utility';
 import {useNetInfo} from '@react-native-community/netinfo';
+import loginImage from '../../../../assets/login.png';
+import FastImage from 'react-native-fast-image';
 
 const SignUp = props => {
   const navigation = useNavigation();
@@ -43,15 +45,21 @@ const SignUp = props => {
 
   const [modalVisible, setModalVisible] = useState(false);
 
+  //check to validate inputs
   const isValid = () => {
-    if (username === '' && password && confirmPassword && password) {
+    if (
+      username === '' &&
+      password === '' &&
+      confirmPassword === '' &&
+      password === ''
+    ) {
       toast(ERROR_MESSAGE.AUTH.ALL_FIELDS_REQUIRED, ALERT_TYPE.WARNING);
       return false;
     } else if (username === '') {
       toast(ERROR_MESSAGE.AUTH.EMPTY_USERNAME, ALERT_TYPE.WARNING);
       return false;
     } else if (email === '') {
-      toast(ERROR_MESSAGE.AUTH.EMPTY_EAMIL, ALERT_TYPE.ERROR);
+      toast(ERROR_MESSAGE.AUTH.EMPTY_EAMIL, ALERT_TYPE.WARNING);
       return false;
     } else if (password === '') {
       toast(ERROR_MESSAGE.AUTH.EMPTY_PASSWORD, ALERT_TYPE.WARNING);
@@ -69,6 +77,8 @@ const SignUp = props => {
       return true;
     }
   };
+
+  //signup method
   const onSignUpHandler = () => {
     if (!netInfo.isConnected) {
       toast(ERROR_MESSAGE.NO_INTERNET, ALERT_TYPE.ERROR);
@@ -92,7 +102,15 @@ const SignUp = props => {
       </Modal>
 
       <View style={styles.topContainer}>
-        <Text style={styles.headerTxt}>Create a new account</Text>
+        <FastImage
+          source={loginImage}
+          resizeMode="cover"
+          style={styles.image}
+          resizeMethod="scale"
+        />
+        <View style={styles.centerContainer}>
+          <Text style={styles.headerTxt}>Create a new account</Text>
+        </View>
       </View>
       <View style={styles.subContainer}>
         <View style={styles.textInputContainer}>
@@ -206,8 +224,7 @@ const styles = StyleSheet.create({
     fontFamily: ComponentStyles.FONT.MULISH_BOLD,
     color: ComponentStyles.COLORS.WHITE,
     fontSize: ComponentStyles.FONT_SIZE.LARGE + 5,
-    textAlign:"center",
-
+    textAlign: 'center',
   },
   subContainer: {
     flex: 0.7,
@@ -240,5 +257,18 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
     color: ComponentStyles.COLORS.RED,
     fontFamily: ComponentStyles.FONT.MULISH_BOLD,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+  },
+  centerContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

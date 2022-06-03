@@ -15,6 +15,7 @@ const initialState = {
   buffering: false,
 };
 
+//get and search all news methods //
 const getAllNewsStart = (state, action) => {
   return {
     ...state,
@@ -38,7 +39,9 @@ const getAllNewsFail = (state, action) => {
     allNewsLoading: false,
   };
 };
+//get and search all news methods //
 
+//get and search business news methods //
 const getBusinessNewsStart = (state, action) => {
   return {
     ...state,
@@ -62,7 +65,9 @@ const getBusinessNewsFail = (state, action) => {
     businessNewsLoading: false,
   };
 };
+//get and search business news methods //
 
+//get and search science news methods //
 const getScienceNewsStart = (state, action) => {
   return {
     ...state,
@@ -86,7 +91,9 @@ const getScienceNewsFail = (state, action) => {
     scienceNewsLoading: false,
   };
 };
+//get and search science news methods //
 
+//get and search technology news methods //
 const getTechnologyNewsStart = (state, action) => {
   return {
     ...state,
@@ -110,7 +117,9 @@ const getTechnologyNewsFail = (state, action) => {
     technologyNewsLoading: false,
   };
 };
+//get and search technology news methods //
 
+//get and search sports news methods //
 const getSportsNewsStart = (state, action) => {
   return {
     ...state,
@@ -134,6 +143,7 @@ const getSportsNewsFail = (state, action) => {
     sportsNewsLoading: false,
   };
 };
+//get and search sports news methods
 
 const setBuffering = (state, action) => {
   return {

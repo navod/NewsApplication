@@ -35,8 +35,10 @@ const HomeTopTabScreen = props => {
 
   const [searchText, setSearchText] = useState('');
 
+  // filtering search results according to the news category
   const onSearchNewsHandler = searchText => {
     if (!netInfo.isConnected) {
+      //Checking user has an internet connection
       toast(ERROR_MESSAGE.NO_INTERNET, ALERT_TYPE.ERROR);
     } else {
       if (focusScreen === CATEGORY.ALL) {
@@ -79,19 +81,19 @@ const HomeTopTabScreen = props => {
             value={searchText}
             onChangeText={val => {
               setSearchText(val);
-              clearTimeout(timeoutRef);
+              clearTimeout(timeoutRef); //fetching data according to timeout and when entering every letter the timeout function is cleaned
               props.setBuffering(true);
               setTimeoutRef(
                 setTimeout(() => {
                   props.setBuffering(false);
-                  onSearchNewsHandler(val);
+                  onSearchNewsHandler(val); //search news
                 }, 1000),
               );
             }}
           />
         </View>
       </View>
-
+      {/* tabBar  */}
       <Tab.Navigator
         screenOptions={{
           tabBarLabelStyle: styles.tabBarLabel,

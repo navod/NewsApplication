@@ -22,7 +22,7 @@ import FastImage from 'react-native-fast-image';
 const NewsDetailPage = () => {
   const navigation = useNavigation();
 
-  const {params} = useRoute();
+  const {params} = useRoute(); // get data
 
   const subHeaderLeft = (
     <IO
@@ -77,12 +77,13 @@ const NewsDetailPage = () => {
             <Text style={styles.title}>{params.title}</Text>
             <Text style={styles.newsDetail}>
               By {params.author + '  '} |{'  '}
+              {/* format date user friendly */}
               {moment(params.publishedAt).format('MMMM Do YYYY, h.mm a')}
             </Text>
             <Text style={styles.description}>{params.description}</Text>
 
             <Text style={styles.content}>
-              {params.content === null
+              {params.content === null //check data available
                 ? 'No content available..!'
                 : params.content}
             </Text>
@@ -100,7 +101,6 @@ const styles = StyleSheet.create({
     flex: 0.6,
     justifyContent: 'center',
     alignItems: 'center',
-
   },
   subHeaderMiddle: {
     fontFamily: ComponentStyles.FONT.MULISH_BOLD,
@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: -20,
     elevation: 2,
-    
   },
   textContainer: {
     padding: wp('4%'),

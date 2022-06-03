@@ -5,6 +5,7 @@ import DrawerContent from '../../components/UI/DrawerContent/DrawerContent';
 import SignOut from '../../components/Home/SignOut/SignOut';
 
 const HomeDrawer = createDrawerNavigator();
+
 const HomeDrawerScreen = props => {
   return (
     <HomeDrawer.Navigator

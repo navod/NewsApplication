@@ -9,7 +9,7 @@ import SportsNewsList from './SportsNewsList/SportsNewsList';
 
 const SportsNewsScreen = props => {
   useEffect(() => {
-    props.onGetSportsNews();
+    props.onGetSportsNews(); //fetch sports news data
   }, []);
 
   const [refreshing, setRefreshing] = useState(false);
@@ -19,7 +19,7 @@ const SportsNewsScreen = props => {
       <View style={styles.space}></View>
       {props.loading || props.buffering ? (
         <View style={{flex: 1, justifyContent: 'center'}}>
-          <ActivityIndicator
+          <ActivityIndicator // This indicator is rendered until the data is fetched
             size={ComponentStyles.ICON_SIZE.LARGE + 10}
             color={ComponentStyles.COLORS.RED}
           />
@@ -28,7 +28,7 @@ const SportsNewsScreen = props => {
         <SportsNewsList
           data={props.sportsNews}
           refreshing={refreshing}
-          refreshPos={() => {
+          refresh={() => {
             setRefreshing(true);
             props.onGetSportsNews(() => {
               setRefreshing(false);

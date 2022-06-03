@@ -9,7 +9,7 @@ import TechnologyNewsList from './TechnologyNewsList/TechnologyNewsList';
 
 const TechnologyNewsScreen = props => {
   useEffect(() => {
-    props.onGetTechnologyNews();
+    props.onGetTechnologyNews(); //fetch technology news data
   }, []);
 
   const [refreshing, setRefreshing] = useState(false);
@@ -18,7 +18,7 @@ const TechnologyNewsScreen = props => {
       <View style={styles.space}></View>
       {props.loading || props.buffering ? (
         <View style={{flex: 1, justifyContent: 'center'}}>
-          <ActivityIndicator
+          <ActivityIndicator // This indicator is rendered until the data is fetched
             size={ComponentStyles.ICON_SIZE.LARGE + 10}
             color={ComponentStyles.COLORS.RED}
           />
@@ -27,7 +27,7 @@ const TechnologyNewsScreen = props => {
         <TechnologyNewsList
           data={props.technologyNews}
           refreshing={refreshing}
-          refreshPos={() => {
+          refresh={() => {
             setRefreshing(true);
             props.onGetTechnologyNews(() => {
               setRefreshing(false);
