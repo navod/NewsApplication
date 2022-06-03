@@ -9,7 +9,6 @@ The main purpose of this app is to give people the opportunity to view the lates
 - Science News
 - sports News
 - Technology news
-
 <br/>
 
 ## Tech Stack
@@ -35,7 +34,6 @@ The main purpose of this app is to give people the opportunity to view the lates
 ```bash
 NEWS_API_KEY = 'ENTER YOUR API KEY';
 ```
-
 <br/>
 
 ## Dependency Reference
