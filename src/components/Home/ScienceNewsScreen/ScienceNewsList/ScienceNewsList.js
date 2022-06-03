@@ -2,6 +2,7 @@ import {View, FlatList, StyleSheet, RefreshControl} from 'react-native';
 import React from 'react';
 import {heightPercentageToDP as hp} from '../../../../../constants/ComponentStyles';
 import ScienceNewsListItem from './ScienceNewsListItem/ScienceNewsListItem';
+import NoContentScreen from '../../../UI/NoContentScreen/NoContentScreen';
 
 const ScienceNewsList = props => {
   const renderItem = ({item}) => {
@@ -22,6 +23,8 @@ const ScienceNewsList = props => {
           onRefresh={props.refresh}
         />
       }
+      contentContainerStyle={{flexGrow: 1}}
+      ListEmptyComponent={() => <NoContentScreen />}
     />
   );
 };
