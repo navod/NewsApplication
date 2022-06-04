@@ -7,7 +7,7 @@ const initialState = {
   token: null,
   error: null,
   redirectHome: false,
-  autosignInLoading: false,
+  autosignInLoading: true,
 };
 
 // sign in methods //
@@ -71,6 +71,7 @@ const userSignOut = (state, action) => {
     error: null,
     loading: false,
     redirectHome: false,
+    autosignInLoading: false,
   };
 };
 

@@ -1,11 +1,25 @@
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ActivityIndicator} from 'react-native';
 import React from 'react';
-import ComponentStyles from '../../../../constants/ComponentStyles';
+import ComponentStyles, {
+  widthPercentageToDP as wp,
+} from '../../../../constants/ComponentStyles';
+import logo from '../../../../assets/logo.png';
+import FastImage from 'react-native-fast-image';
 
 const BlankScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>loading....</Text>
+      <FastImage
+        source={logo}
+        tintColor={ComponentStyles.COLORS.WHITE}
+        style={styles.image}
+        resizeMode="contain"
+      />
+      <ActivityIndicator
+        size={ComponentStyles.ICON_SIZE.LARGE + 1}
+        color={ComponentStyles.COLORS.WHITE}
+        style={{position: 'absolute', bottom: 50}}
+      />
     </View>
   );
 };
@@ -23,5 +37,9 @@ const styles = StyleSheet.create({
     fontFamily: ComponentStyles.FONT.MULISH_LIGHT,
     fontSize: ComponentStyles.FONT_SIZE.SMALL,
     color: ComponentStyles.COLORS.WHITE,
+  },
+  image: {
+    width: wp('40%'),
+    height: wp('20%'),
   },
 });
