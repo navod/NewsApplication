@@ -73,7 +73,6 @@ const styles = StyleSheet.create({
     borderRadius: hp('1.7%'),
     paddingLeft: wp('5.8%'),
     paddingRight: wp('5.8%'),
-    borderWidth: 1,
   },
 
   header: {

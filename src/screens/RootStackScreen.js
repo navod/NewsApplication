@@ -6,6 +6,7 @@ import AuthStackScreen from './AuthStackScreen/AuthStackScreen';
 import HomeDrawerScreen from './HomeDrawerScreen/HomeDrawerScreen';
 import * as actions from '../../store/actions';
 import {connect} from 'react-redux';
+import BlankScreen from '../components/UI/BlankScreen/BlankScreen';
 
 const RootStack = createStackNavigator();
 
@@ -18,7 +19,9 @@ const RootStackScreen = props => {
   return (
     <RootStack.Navigator
       screenOptions={{headerShown: false, animationEnabled: true}}>
-      {props.token && props.redirectHome ? (
+      {props.autosignInLoading ? (
+        <RootStack.Screen name="BlankScreen" component={BlankScreen} />
+      ) : props.token && props.redirectHome ? (
         <RootStack.Screen
           name="HomeDrawerScreen"
           component={HomeDrawerScreen}
@@ -26,6 +29,7 @@ const RootStackScreen = props => {
       ) : (
         <RootStack.Screen name="AuthStackScreen" component={AuthStackScreen} />
       )}
+
       <RootStack.Screen name="NewsDetailPage" component={NewsDetailPage} />
     </RootStack.Navigator>
   );
@@ -35,6 +39,7 @@ const mapStateToProps = state => {
   return {
     token: state.auth.token,
     redirectHome: state.auth.redirectHome,
+    autosignInLoading: state.auth.autosignInLoading,
   };
 };
 

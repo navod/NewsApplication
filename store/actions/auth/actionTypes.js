@@ -8,3 +8,5 @@ export const USER_SIGN_UP_FAIL = 'USER_SIGN_UP_FAIL';
 
 export const USER_SIGN_OUT = 'USER_SIGN_OUT';
 export const REDIRECT_HOME = 'REDIRECT_HOME';
+
+export const AUTO_SIGN_IN_START = 'AUTO_SIGN_IN_START';

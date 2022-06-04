@@ -7,6 +7,7 @@ const initialState = {
   token: null,
   error: null,
   redirectHome: false,
+  autosignInLoading: false,
 };
 
 // sign in methods //
@@ -74,7 +75,11 @@ const userSignOut = (state, action) => {
 };
 
 const redirectHome = (state, action) => {
-  return {...state, redirectHome: true};
+  return {...state, redirectHome: true, autosignInLoading: false};
+};
+
+const autoSignInStart = (state, action) => {
+  return {...state, autoSignInStart: true};
 };
 
 const reducer = (state = initialState, action) => {
@@ -98,6 +103,9 @@ const reducer = (state = initialState, action) => {
 
     case actionTypes.REDIRECT_HOME:
       return redirectHome(state, action);
+
+    case actionTypes.AUTO_SIGN_IN_START:
+      return autoSignInStart(state, action);
 
     default:
       return state;

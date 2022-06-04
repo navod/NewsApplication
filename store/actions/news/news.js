@@ -44,6 +44,7 @@ export const getAllNews = callback => {
         headers: {authorization: API_KEY},
         params: {
           country: 'us',
+          pageSize: 100,
           // category: 'health',
           // q:"what"
         },
@@ -73,10 +74,10 @@ export const searchAllNews = searchText => {
       .get('/v2/top-headlines', {
         headers: {authorization: API_KEY},
         params: {
-          page: 1,
           country: 'us',
-          // category: 'health',
+          pageSize: 100,
           q: searchText,
+          searchIn: 'title',
         },
       })
       .then(newsRes => {
@@ -122,8 +123,7 @@ export const getBusinessNews = callback => {
       .get('/v2/top-headlines', {
         headers: {authorization: API_KEY},
         params: {
-          page: 1,
-          // country: 'us',
+          pageSize: 100,
           category: CATEGORY.BUSINESS,
         },
       })
@@ -151,10 +151,10 @@ export const searchBusinessNews = searchText => {
       .get('/v2/top-headlines', {
         headers: {authorization: API_KEY},
         params: {
-          page: 1,
-          // country: 'us',
           category: CATEGORY.BUSINESS,
           q: searchText,
+          searchIn: 'title',
+          pageSize: 100,
         },
       })
       .then(newsRes => {
@@ -200,9 +200,8 @@ export const getTechnologyNews = callback => {
       .get('/v2/top-headlines', {
         headers: {authorization: API_KEY},
         params: {
-          page: 1,
-          // country: 'us',
           category: CATEGORY.TECHNOLOGY,
+          pageSize: 100,
         },
       })
       .then(newsRes => {
@@ -230,9 +229,10 @@ export const searchTechnologyNews = searchText => {
         headers: {authorization: API_KEY},
         params: {
           page: 1,
-          // country: 'us',
           category: CATEGORY.TECHNOLOGY,
           q: searchText,
+          searchIn: 'title',
+          pageSize: 100,
         },
       })
       .then(newsRes => {
@@ -278,9 +278,8 @@ export const getScienceNews = callback => {
       .get('/v2/top-headlines', {
         headers: {authorization: API_KEY},
         params: {
-          page: 1,
-          // country: 'us',
           category: CATEGORY.SCIENCE,
+          pageSize: 100,
         },
       })
       .then(newsRes => {
@@ -307,10 +306,10 @@ export const searchScienceNews = searchText => {
       .get('/v2/top-headlines', {
         headers: {authorization: API_KEY},
         params: {
-          page: 1,
-          // country: 'us',
+          pageSize: 100,
           category: CATEGORY.SCIENCE,
           q: searchText,
+          searchIn: 'title',
         },
       })
       .then(newsRes => {
@@ -357,6 +356,7 @@ export const getSportsNews = callback => {
         headers: {authorization: API_KEY},
         params: {
           category: CATEGORY.SPORTS,
+          pageSize: 100,
         },
       })
       .then(newsRes => {
@@ -386,6 +386,8 @@ export const searchSportsNews = searchText => {
         params: {
           category: CATEGORY.SPORTS,
           q: searchText,
+          searchIn: 'title',
+          pageSize: 100,
         },
       })
       .then(newsRes => {

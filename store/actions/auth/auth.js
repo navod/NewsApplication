@@ -142,9 +142,14 @@ export const userSignOut = () => {
   };
 };
 
+const autoSignInStart = () => {
+  return {
+    type: actionTypes.AUTO_SIGN_IN_START,
+  };
+};
 export const tryAutoSignin = () => {
   return dispatch => {
-    dispatch(userSignInStart());
+    dispatch(autoSignInStart());
     AsyncStorage.getItem(ZEE_NEWS_USER_KEY).then(data => {
       const zeeNewsUser = JSON.parse(data);
       if (zeeNewsUser) {
