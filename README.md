@@ -162,6 +162,6 @@ I have solved the above problems, used by this dependency,
 
 ## Support
 
-Email: navodsachintha@example.com
+Email: navodsachintha@gmail.com
 
 Project Link: https://github.com/navod/NewsApplication.git
